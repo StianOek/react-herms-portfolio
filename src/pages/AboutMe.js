@@ -1,5 +1,6 @@
 import React from 'react'
 import AboutSection from '../components/AboutSection';
+import RefrencesSection from '../components/RefrencesSection';
 import SkillSection from '../components/SkillSection';
 
 const AboutMe = () => {
@@ -7,6 +8,7 @@ const AboutMe = () => {
         <>
             <AboutSection />
             <SkillSection />
+            <RefrencesSection />
         </>
     )
 }

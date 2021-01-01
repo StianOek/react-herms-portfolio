@@ -1,7 +1,7 @@
 import React from 'react'
 import myself from '../img/home1.png';
 
-const About = () => {
+const AboutSection = () => {
     return(
         <div>
             <div className="description">
@@ -28,4 +28,4 @@ const About = () => {
     )
 }
 
-export default About;
+export default AboutSection;

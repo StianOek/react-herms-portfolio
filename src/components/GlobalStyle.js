@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background: #1b1b1b;
+    background: white;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 button {
@@ -19,7 +20,7 @@ button {
     padding: 1rem 2rem;
     border: 3px solid #23d997;
     background: transparent;
-    color: white;
+    color: #212121;
     transition: all 0.5s ease;
     &:hover {
         background-color: #23d997; 
@@ -31,10 +32,13 @@ button {
 h2 {
     font-weight: lighter;
     font-size: 3rem;
+    letter-spacing: .5rem;
+    color: #212121;
+    text-transform: uppercase;
 
 }
 h3{
-     color: white;
+     color: #212121;
 }
 h4{
     font-weight: bold;
@@ -50,7 +54,7 @@ span {
 }
 p {
     padding: 3rem 0rem;
-    color: #ccc;
+    color: #212121;
     font-size: 1.4rem;
     line-height: 150%;
     }

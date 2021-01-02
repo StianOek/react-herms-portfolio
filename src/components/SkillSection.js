@@ -1,52 +1,95 @@
 import React from 'react'
-import react from '../img/react-seeklogo.com.svg'
-import javascript from '../img/javascript.svg';
-import XD from '../img/adobe-xd.svg';
-import java from '../img/java.svg';
-import home2 from '../img/home2.png'
+import clock from '../img/clock.svg'
+import teamwork from '../img/teamwork.svg';
+import money from '../img/money.svg';
+import diaphragm from '../img/diaphragm.svg';
+import home2 from '../img/work.jpg'
+
+import {About, Description, Image, Hide} from '../styles'
+import styled from 'styled-components';
 
 const SkillSection = () => {
     return (
-        <div className="Skills">
-            <div className="description">
-                <h2>Heres an overview of my <span>tool</span> belt</h2>
-                <div className="cards">
-                    <div className="card">
+        <Skill>
+            <Description>
+                <h2>High <span>Quality</span> web products</h2>
+                <Cards>
+                    <Card>
                         <div className="icon">
-                            <img alt="icon of react" src={react} />
-                            <h3>React</h3>
+                            <img alt="icon of react" src={clock} />
+                            <h3>Efficent</h3>
                         </div>
-                        <p>React is the shit</p>
-                    </div>
-                    <div className="card">
+                        <p>I spend all my effort and time on one project at a time</p>
+                    </Card>
+                    <Card>
                         <div className="icon">
-                            <img alt="icon of javascript" src={javascript} />
-                            <h3>Javascript</h3>
-                            <p>Javascript is the shit</p>
+                            <img alt="icon of javascript" src={teamwork} />
+                            <h3>Teamwork</h3>
+                            
                         </div>
-                        <p>React is the shit</p>
-                    </div>
-                    <div className="card">
+                        <p>I work best with continuasly contact with my client</p>
+                    </Card>
+                    <Card>
                         <div className="icon">
-                            <img alt="icon of adobe xd" src={XD} />
-                            <h3>Adobe XD</h3>
+                            <img alt="icon of adobe xd" src={money} />
+                            <h3>Affordable</h3>
                         </div>
-                        <p>Adobe Xd is the shit</p>
-                    </div>
-                    <div className="card">
+                        <p></p>
+                    </Card>
+                    <Card>
                         <div className="icon">
-                            <img alt="icon of java" src={java} />
-                            <h3>Java</h3>
+                            <img alt="icon of java" src={diaphragm} />
+                            <h3>Trust</h3>
                         </div>
-                        <p>Java is the shit</p>
-                    </div>
-                </div>
-            </div>
-            <div className="image">
+                        <p></p>
+                    </Card>
+                </Cards>
+            </Description>
+            <Image>
                 <img alt="pic of something" src={home2}  />
-            </div>
-        </div>
+            </Image>
+        </Skill>
     )
+};
+
+const Skill = styled(About)`
+    h2 {
+        padding-bottom: 5rem;
+    }
+
+    p {
+        width: 70%;
+        padding: 2rem 0rem 4rem 0rem;
+    }
+`;
+
+const Cards = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+const Card = styled.div`
+flex-basis: 20rem;
+.icon {
+    display: flex;
+    align-items: center;
+
+    h3{
+        margin-left: 1rem;
+        background: none;
+        border: 1px solid white;
+        color: #212121;
+        width: 100px;
+        text-align: center;
+
+    }
+
+    
 }
+p {
+        font-size: 1rem;
+    }
+
+`
 
 export default SkillSection;

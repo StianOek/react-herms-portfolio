@@ -27,7 +27,7 @@ margin: auto;
 justify-content: space-between;
 align-items: center;
 padding: 1rem 10rem;
-background-color: #23d991;
+border-bottom: 1px solid #23d991;
 
 
 a{

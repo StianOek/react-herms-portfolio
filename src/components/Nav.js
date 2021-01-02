@@ -1,19 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 
+import {Link} from 'react-router-dom';
+
 const Nav = () => {
     return(
         <Navbar>
             <h1><a id="logo" href="#">Herms</a></h1>
             <ul>
                 <li>
-                    <a href="#">. About</a>
+                    <Link to="/"><span>.</span> About</Link>
+                    
                 </li>
                 <li>
-                    <a href="#">. Work</a>
+                    <Link to="/work"><span>.</span> Work</Link>
+                    
                 </li>
                 <li>
-                    <a href="#">. Contact</a>
+                    <Link to="/contact"><span>.</span> Contact</Link>
+                
                 </li>
             </ul>
         </Navbar>

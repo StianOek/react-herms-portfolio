@@ -21,6 +21,7 @@ button {
     border: 3px solid #23d997;
     background: transparent;
     color: #212121;
+    text-transform: uppercase;
     transition: all 0.5s ease;
     &:hover {
         background-color: #23d997; 
@@ -32,7 +33,7 @@ button {
 h2 {
     font-weight: lighter;
     font-size: 3rem;
-    letter-spacing: .5rem;
+    letter-spacing: .6rem;
     color: #212121;
     text-transform: uppercase;
 
@@ -42,6 +43,10 @@ h3{
 }
 h4{
     font-weight: bold;
+    color: #212121;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+
     
 }
 a {

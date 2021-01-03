@@ -13,7 +13,7 @@ const Work = () => {
             <Project>
                 <h2>The Zeipt Project</h2>
                 <div className="line"></div>
-                <Link>
+                <Link to="/work/zeipt">
                     <img src={work} alt="project one"/>
                 </Link>
             </Project>

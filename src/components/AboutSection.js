@@ -11,15 +11,15 @@ const AboutSection = () => {
             <Description>
                 <div className="title">
                     <Hide>
-                        <h2>Name is Stian Herms</h2>
+                        <h2>Name is <span>Stian Herms</span></h2>
                     </Hide>
                     <Hide>
-                        <h2>Front-End developer</h2>
+                        <h2><span>Front-End</span> developer</h2>
                     </Hide>
                     <Hide>
                         <h2>With <span>UI/UX</span> in mind</h2>
                     </Hide>
-                    <p>Contact me for any web related or design ideas that you have! I am driven to fetch your ideas out to the world, weather its dekstop or mobile.</p>
+                    <p>Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile.</p>
                     <button>Contact me</button>
                 </div>
             </Description>

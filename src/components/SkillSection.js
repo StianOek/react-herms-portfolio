@@ -1,9 +1,11 @@
 import React from 'react'
+//icons
 import clock from '../img/clock.svg'
 import teamwork from '../img/teamwork.svg';
 import money from '../img/money.svg';
 import diaphragm from '../img/diaphragm.svg';
-import home2 from '../img/work.jpg'
+//landing pictures
+import home2 from '../img/code6.jpg'
 
 import {About, Description, Image, Hide} from '../styles'
 import styled from 'styled-components';

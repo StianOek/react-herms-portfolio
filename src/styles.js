@@ -29,6 +29,7 @@ export const Image = styled.div`
         width: 100%;
         height: 80vh;
         object-fit: cover;
+        
     }
 
 `

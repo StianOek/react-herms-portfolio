@@ -18,7 +18,8 @@ button {
     font-size: 1.1.rem;
     cursor: pointer;
     padding: 1rem 2rem;
-    border: 3px solid #23d997;
+    border: 1px solid #23d997;
+    border-radius: 50px;
     background: transparent;
     color: #212121;
     text-transform: uppercase;

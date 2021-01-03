@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const Nav = () => {
     return(
         <Navbar>
-            <h1><a id="logo" href="#">Herms</a></h1>
+            <h1><Link to="/">Herms</Link></h1>
             <ul>
                 <li>
                     <Link to="/"><span>.</span> About</Link>

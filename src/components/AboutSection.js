@@ -7,6 +7,9 @@ import {About, Description, Image, Hide} from '../styles'
 import {motion} from 'framer-motion';
 import {titleAnimation, fade, photoAnimation} from '../Animation';
 
+import Wave from './wave';
+
+
 
 
 const AboutSection = () => {
@@ -42,6 +45,9 @@ const AboutSection = () => {
                                         }}>
                 <motion.img variants={photoAnimation} src={myself} alt="Image of myself taking picture" />
             </Image>
+
+        
+            
         
         </About>
     )

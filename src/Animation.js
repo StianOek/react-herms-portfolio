@@ -10,15 +10,15 @@ export const pageAnimation = {
         y: 0,
         scale: 1,
         transition: {
-            duration: 0.6,
+            duration: 0.5,
             when: 'beforeChildren',
-            staggerChildren: 0.1,
+            staggerChildren: 0.3,
             
         },
     },
     exit: {
         opacity: 0,
-        x: 300,
+        y: 20,
         transition: {
             duration: 1,
         }
@@ -81,4 +81,33 @@ export const photoAnimation = {
             duration: 1,
         },
     },
+};
+
+export const LineAnimation = {
+    hidden: {
+        width: "0%"
+    },
+    show: {
+        width: "100%",
+        transition: {
+            duration: 1,
+        }
+    }
+};
+
+export const slider = {
+    hidden: {
+        x: "-130%",
+        skew: "45deg",
+    },
+
+    show: {
+        x: "100%",
+        skew: "0deg",
+        transition: {
+            ease: "easeOut",
+            duration: 1,
+        }
+    }
 }
+

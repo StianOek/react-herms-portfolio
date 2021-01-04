@@ -75,6 +75,13 @@ p {
     line-height: 150%;
     }
 
+.ref_p {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
 `
+
+
 
 export default GlobalStyle;

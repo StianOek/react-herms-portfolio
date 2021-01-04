@@ -1,6 +1,8 @@
 import project from './img/project.jpg';
 import project2 from './img/code2.jpg';
 import project3 from './img/code3.jpg';
+import project4 from './img/code4.jpg';
+import project5 from './img/Mac.jpg';
 
 export const WorkState = () => {
     return [
@@ -23,11 +25,14 @@ export const WorkState = () => {
         {
             title: 'Storebrand',
             mainImg: project,
+            pic: project4,
+            pic2: project5,
             url: "/work/storebrand",
             desc: [
                 {
-                    title: 'Front-end',
-                    description: 'Lorem borem, little skorem, with floren and shorem'
+                    title: 'Description',
+                    description: 'Lorem borem, little skorem, with floren and shorem',
+                    tools: "Html, CSS(SASS), Javascript, Adobe XD"
                 }
 
             ]

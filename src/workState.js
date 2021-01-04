@@ -24,11 +24,14 @@ export const WorkState = () => {
             title: 'Storebrand',
             mainImg: project,
             url: "/work/storebrand",
-            desc:
-            {
-                title: 'Front-end',
-                description: 'Lorem borem, little skorem, with floren and shorem'
-            }
+            desc: [
+                {
+                    title: 'Front-end',
+                    description: 'Lorem borem, little skorem, with floren and shorem'
+                }
+
+            ]
+            
         }
 
     ];

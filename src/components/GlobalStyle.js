@@ -31,11 +31,20 @@ button {
    
 }
 
+.title_one{
+    font-size: 2.5rem;
+}
+.title_three {
+    font-size: 2rem;
+
+}
+
 h2 {
     font-weight: lighter;
-    font-size: 3rem;
+    font-size: 2rem;
     letter-spacing: .6rem;
     color: #212121;
+    line-height: 4rem;
     text-transform: uppercase;
 
 }
@@ -56,6 +65,7 @@ a {
 span { 
     font-weight: bold;
     color: #23d997; 
+    
 
 }
 p {

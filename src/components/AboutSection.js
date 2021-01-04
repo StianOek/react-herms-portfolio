@@ -1,31 +1,46 @@
 import React from 'react'
 import myself from '../img/IMG_4643.JPG';
 
-import styled from 'styled-components';
 import {About, Description, Image, Hide} from '../styles'
+
+//Framer motion
+import {motion} from 'framer-motion';
+import {titleAnimation, fade, photoAnimation} from '../Animation';
+
 
 
 const AboutSection = () => {
+
+      
+
     return(
         <About>
             <Description>
-                <div className="title">
+                <motion.div  className="title">
                     <Hide>
-                        <h2>Name is <span>Stian Herms</span></h2>
+                        <motion.h2 className="title_one" variants={titleAnimation}>Name is <span>Stian Herms</span></motion.h2>
                     </Hide>
                     <Hide>
-                        <h2><span>Front-End</span> developer</h2>
+                        <motion.h2 variants={titleAnimation}><span>Front-End</span> developer</motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>With <span>UI/UX</span> in mind</h2>
+                        <motion.h2 className="title_three" variants={titleAnimation}>With <span>UI/UX</span> in mind</motion.h2>
                     </Hide>
-                    <p>Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile.</p>
-                    <button>Contact me</button>
-                </div>
+                    <motion.p variants={fade}>Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile.</motion.p>
+                    <motion.button variants={fade}>Contact me</motion.button>
+                </motion.div>
             </Description>
 
-            <Image>
-                <img src={myself} alt="a pic of myself in about section" />
+            <Image  
+                    whileHover={{ scale: 0.7, rotate: 45 }}
+                    whileTap={{
+                    scale: 0.4,
+                    rotate: -45,
+                    filter: "blur(5px)",
+                    border: "5px solid #23d997"
+                    
+                                        }}>
+                <motion.img variants={photoAnimation} src={myself} alt="Image of myself taking picture" />
             </Image>
         
         </About>

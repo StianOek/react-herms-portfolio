@@ -7,9 +7,13 @@ import {Link} from 'react-router-dom';
 import work from '../img/Zeipt.png';
 import work2 from '../img/Storebrand.jpg';
 
+//Animation
+import {motion} from 'framer-motion';
+import {pageAnimation} from '../Animation';
+
 const Work = () => {
     return(
-        <Container>
+        <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden" style={{background: "#23d997"}}>
             <Project>
                 <h2>The Zeipt Project</h2>
                 <div className="line"></div>
@@ -20,7 +24,7 @@ const Work = () => {
             <Project>
                 <h2>Storebrand</h2>
                 <div className="line"></div>
-                <Link>
+                <Link to="/work/storebrand">
                     <img src={work2} alt="project two"/>
                 </Link>
             </Project>
@@ -29,7 +33,7 @@ const Work = () => {
 };
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     min-height: 100vh;
     overflow: hidden;
     padding: 5rem 10rem;

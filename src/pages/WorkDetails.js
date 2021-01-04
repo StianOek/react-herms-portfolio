@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { WorkState } from "../workState";
 
+import vid from '../Video/typing.mp4';
+
+
+//Animation
+import {motion} from 'framer-motion';
+import {pageAnimation} from '../Animation';
+
 const Detail = () => {
     
     const history = useHistory();
@@ -24,7 +31,7 @@ const Detail = () => {
     return (
         <>
         {work && (
-            <Container>
+            <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden">
                 <Headline>
                 <h2>{work.title}</h2>
                     <Imgwrap>
@@ -53,7 +60,7 @@ const Detail = () => {
     
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 color: #212121;
 `;
 
@@ -107,6 +114,19 @@ h3{
     margin: 1rem 0rem;
 
 }
+
+p{
+    letter-spacing: 0.2rem;
+    font-size: 1.2rem;
+    
+}
+video {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    
+    
+}
 `;
 
 
@@ -117,6 +137,7 @@ const Info = ({title, description, tools}) => {
             <div className="line"></div>
             <p>{description}</p>
             <p>{tools}</p>
+            <video src={vid} autoPlay="on" loop="on" muted="on" />
             
             
         </InfoStyle>

@@ -9,10 +9,15 @@ import home2 from '../img/code6.jpg'
 
 import {About, Description, Image, Hide} from '../styles'
 import styled from 'styled-components';
+import {useScroll} from './useScroll';
+import {scrollReveal} from '../Animation';
 
 const SkillSection = () => {
+
+const [element, controls] = useScroll();
+
     return (
-        <Skill>
+        <Skill variants={scrollReveal} animate={controls} ref={element}>
             <Description>
                 <h2>High <span>Quality</span> web products</h2>
                 <Cards>

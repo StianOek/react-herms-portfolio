@@ -1,7 +1,6 @@
 import React from 'react'
 import AboutMe from './pages/AboutMe'
 
-
 import GlobalStyle from './components/GlobalStyle'
 import Nav from './components/Nav';
 import Contact from './pages/Contact';
@@ -9,6 +8,8 @@ import Work from './pages/Work';
 import Detail from './pages/WorkDetails';
 
 import { Switch, Route, useLocation} from 'react-router-dom';
+
+import Menu from './components/Hamburger/HamburgerMenu';
 
 //Animation
 import {AnimatePresence} from 'framer-motion';
@@ -24,6 +25,7 @@ console.log(location)
   return (
     <div className="App">
       <GlobalStyle />
+      <Menu />
       <Nav />
 
       <AnimatePresence exitBeforeEnter>

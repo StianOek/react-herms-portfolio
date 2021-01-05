@@ -1,6 +1,6 @@
 import React from 'react'
 import myself from '../img/IMG_4643.JPG';
-
+import sec from '../img/code3.jpg';
 import {About, Description, Image, Hide} from '../styles'
 
 //Framer motion
@@ -35,14 +35,14 @@ const AboutSection = () => {
             </Description>
 
             <Image  
-                    whileHover={{ scale: 0.7, rotate: 45 }}
-                    whileTap={{
-                    scale: 0.4,
-                    rotate: -45,
-                    filter: "blur(5px)",
-                    border: "5px solid #23d997"
-                    
-                                        }}>
+                   whileHover={{ scale: 0.7, rotate: 15 }}
+                   whileTap={{
+                   scale: 0.8,
+                   rotate: 5,
+                   border: "5px solid #23d997",
+                   image: {sec}
+                   
+                                       }} >
                 <motion.img variants={photoAnimation} src={myself} alt="Image of myself taking picture" />
             </Image>
 

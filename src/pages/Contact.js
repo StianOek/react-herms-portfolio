@@ -17,19 +17,24 @@ const Contact = () => {
                 </Title>
 
                 <div>
-                    <Social>
-                        <Circle />
-                        <h2>Send me a message.</h2>
-                        
-                    </Social>
-                    <Social>
-                        <Circle />
-                        <h2>Find me on Twitter</h2>
-                    </Social>
-                    <Social>
-                        <Circle />
-                        <h2>Or just Call me</h2>
-                    </Social>
+                    <Hide>
+                        <Social variants={titleAnimation}>
+                            <Circle />
+                            <h2>Send me a message</h2>
+                        </Social>
+                    </Hide>
+                    <Hide>
+                        <Social variants={titleAnimation}>
+                            <Circle />
+                            <h2>Find me on Twitter</h2>
+                        </Social>
+                    </Hide>
+                    <Hide>
+                        <Social variants={titleAnimation}>
+                            <Circle />
+                            <h2>Or just Call me</h2>
+                        </Social>
+                    </Hide>
                     
                 </div>
 

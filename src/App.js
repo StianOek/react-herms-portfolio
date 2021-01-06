@@ -7,12 +7,15 @@ import Contact from './pages/Contact';
 import Work from './pages/Work';
 import Detail from './pages/WorkDetails';
 
-import { Switch, Route, useLocation} from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
-import Menu from './components/Hamburger/HamburgerMenu';
+
+
 
 //Animation
 import {AnimatePresence} from 'framer-motion';
+
+
 
 
 
@@ -25,9 +28,8 @@ console.log(location)
   return (
     <div className="App">
       <GlobalStyle />
-      <Menu />
+      
       <Nav />
-
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path="/">

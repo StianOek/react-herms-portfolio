@@ -7,7 +7,7 @@ import {About, Description, Image, Hide} from '../styles'
 import {motion} from 'framer-motion';
 import {titleAnimation, fade, photoAnimation} from '../Animation';
 
-import Wave from './wave';
+
 
 
 
@@ -17,7 +17,9 @@ const AboutSection = () => {
       
 
     return(
+        
         <About>
+            
             <Description>
                 <motion.div  className="title">
                     <Hide>

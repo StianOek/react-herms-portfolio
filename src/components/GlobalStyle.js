@@ -8,9 +8,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 
+html {
+    @media (max-width: 1300px) {
+        font-size: 0.7rem;
+    }
+    
+};
+
 body {
     background: white;
     font-family: 'Source Sans Pro', sans-serif;
+    overflow-X: hidden;
 }
 
 button {
@@ -21,6 +29,7 @@ button {
     border: 1px solid #23d997;
     border-radius: 50px;
     background: transparent;
+    outline: none;
     color: #212121;
     text-transform: uppercase;
     transition: all 0.5s ease;

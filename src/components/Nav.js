@@ -36,6 +36,7 @@ border-bottom: 1px solid #23d991;
 background: white;
 position: sticky;
 top: 0;
+z-index: 999;
 
 
 a{

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useEffect } from 'react'
 import styled from 'styled-components';
 
 import {Link} from 'react-router-dom';
@@ -10,10 +10,12 @@ import work2 from '../img/Storebrand.jpg';
 //Animation
 import {motion} from 'framer-motion';
 import {pageAnimation, titleAnimation, fade, photoAnimation, LineAnimation, slider, leftslide} from '../Animation';
+import ScrollTop from '../components/ScrollTop';
 
 
 const Work = () => {
     return(
+        
         <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden">
                 <Frame1 variants={slider}></Frame1>
                 <Frame2 variants={slider}></Frame2>
@@ -22,6 +24,7 @@ const Work = () => {
                 <motion.h2 variants={fade}>The Zeipt Project</motion.h2>
                 <motion.div variants={LineAnimation} className="line"></motion.div>
                 <Link to="/work/zeipt">
+                    
                     <Hide>
                         <motion.img variants={photoAnimation} src={work} alt="project one"/>
                     </Hide>
@@ -35,7 +38,8 @@ const Work = () => {
                     <img src={work2} alt="project two"/>
                 </Link>
             </Project>
-            
+          
+            <ScrollTop />
         </Container>
     )
 };

@@ -68,18 +68,28 @@ const Skill = styled(About)`
         width: 70%;
         padding: 2rem 0rem 4rem 0rem;
     }
+    @media (max-width: 1300px) {
+        display: block;
+        padding: 2rem 2rem;
+        text-align: center;
+        
+    }
 `;
 
 const Cards = styled.div`
     display: flex;
     flex-wrap: wrap;
+    @media (max-width: 1300px) {
+       justify-content: center;
+      
+    }
 `;
 
 const Card = styled.div`
-flex-basis: 20rem;
-.icon {
-    display: flex;
-    align-items: center;
+    flex-basis: 20rem;
+    .icon {
+        display: flex;
+        align-items: center;
 
     h3{
         margin-left: 1rem;
@@ -90,6 +100,10 @@ flex-basis: 20rem;
         text-align: center;
 
     }
+    @media (max-width: 1300px) {
+       justify-content: center;
+      
+    }
 
     
 }
@@ -97,6 +111,8 @@ p {
         font-size: 1rem;
     }
 
+
+    
 `
 
 export default SkillSection;

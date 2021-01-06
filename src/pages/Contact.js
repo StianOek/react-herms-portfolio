@@ -3,21 +3,36 @@ import styled from 'styled-components';
 
 //Animation
 import {motion} from 'framer-motion';
-import {pageAnimation} from '../Animation';
+import {pageAnimation, titleAnimation, LineAnimation} from '../Animation';
 
 const Contact = () => {
     return(
         <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
-            <Container>
-                <h2>Contact me</h2>
-                <Form >
-                    <InputStyle type="text" placeholder="Enter name" />
-                    <InputStyle type="text" placeholder="Enter Email" />
-                    <TextAreaStyle type="text" placeholder="Enter your message here." rows="15" cols="50"></TextAreaStyle>
-                    <button>Submit</button>
-                </Form >
-                
-            </Container>
+           
+                <Title>
+                    <Hide>
+                        <motion.h2 variants={titleAnimation}>Lets Talk</motion.h2>
+                        <motion.div variants={LineAnimation} className="line"></motion.div>
+                    </Hide>
+                </Title>
+
+                <div>
+                    <Social>
+                        <Circle />
+                        <h2>Send me a message.</h2>
+                        
+                    </Social>
+                    <Social>
+                        <Circle />
+                        <h2>Find me on Twitter</h2>
+                    </Social>
+                    <Social>
+                        <Circle />
+                        <h2>Or just Call me</h2>
+                    </Social>
+                    
+                </div>
+
         </ContatcStyle>
         
     )
@@ -29,39 +44,51 @@ color: #353535;
 min-height: 90vh;
 width: 100%;
 `
-
 const Title = styled.div`
 margin-bottom: 4rem;
-color: #000;
+color: #212121;
 `
 
-const Container = styled.div`
-width: 100%;
+const Hide = styled.div`
+overflow: hidden;
+    .line {
+            height: 0.1rem;
+            background: #212121;
+            margin-bottom: 3rem;
+        }
+`
+const Circle = styled.div`
+border-radius: 50% 90% / 100% 30%  ;
+width: 2rem;
+height: 2rem; 
+background: #23d997;
+position: relative;
+
+&:after {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+`
+const Social = styled(motion.div)`
 display: flex;
-flex-direction: column;
-justify-content: center;
 align-items: center;
+    h2{
+        margin: 2rem;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        cursor: pointer;
+        
+    }
 `
 
-const Form = styled.form`
-min-width: 70%;
-display: flex;
-flex-direction: column;
-`
 
-const InputStyle = styled.input`
-outline: none;
-padding: 1rem 4rem;
-margin: 0.6rem;
-width: 100%;
-border: 1px solid #23d997;
-`
-
-const TextAreaStyle = styled.textarea`
-border: 1px solid #23d997;
-padding: 1rem 4rem;
-width: 100%;
-margin: 0.6rem;
-`
 
 export default Contact;

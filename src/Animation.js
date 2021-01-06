@@ -91,6 +91,7 @@ export const LineAnimation = {
         width: "100%",
         transition: {
             duration: 1,
+            
         }
     }
 };

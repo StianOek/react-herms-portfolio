@@ -30,6 +30,16 @@ const RefrencesSection = () => {
                     <p className="ref_p">"This guys is one trusted guy. He delivers exactly what you want him to deliver. I recommend this guy at the highest."</p>  
                     </div>
                 </Toggle>
+                <Toggle title="Others">
+                    <div className="description">
+                    <p className="ref_p">"This guys is one trusted guy. He delivers exactly what you want him to deliver. I recommend this guy at the highest."</p>  
+                    </div>
+                </Toggle>
+                <Toggle title="Others">
+                    <div className="description">
+                    <p className="ref_p">"This guys is one trusted guy. He delivers exactly what you want him to deliver. I recommend this guy at the highest."</p>  
+                    </div>
+                </Toggle>
             </AnimateSharedLayout>
         </Ref>
     )

@@ -2,6 +2,8 @@ import React from 'react'
 import myself from '../img/IMG_4643.JPG';
 import sec from '../img/code3.jpg';
 import {About, Description, Image, Hide} from '../styles'
+import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
 //Framer motion
 import {motion} from 'framer-motion';
@@ -32,15 +34,15 @@ const AboutSection = () => {
                         <motion.h2 className="title_three" variants={titleAnimation}>With <span>UI/UX</span> in mind</motion.h2>
                     </Hide>
                     <motion.p variants={fade}>Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile.</motion.p>
-                    <motion.button variants={fade}>Contact me</motion.button>
+                    <ContactLink variants={fade} to="/contact"> Contact me</ContactLink>
                 </motion.div>
             </Description>
 
             <Image  
                    whileHover={{ scale: 0.7, rotate: 15 }}
                    whileTap={{
-                   scale: 0.8,
-                   rotate: 5,
+                   scale: 0.5,
+                   rotate: -20,
                    border: "5px solid #23d997",
                    image: {sec}
                    
@@ -92,6 +94,30 @@ const AboutSection = () => {
 // const Hide = styled.div`
 // overflow: hidden;
 // `
+
+const ContactLink = styled(Link)`
+font-weight: lighter;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.7rem 2rem;
+    border: 1px solid #23d997;
+    border-radius: 50px;
+    background: transparent;
+    outline: none;
+    color: #212121;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    &:hover {
+        background-color: #23d997; 
+        color: white;
+    }
+
+    @media (max-width: 1300px) {
+        margin-bottom: 5rem;
+    }
+   
+`;
 
 
 export default AboutSection;

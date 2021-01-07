@@ -81,6 +81,22 @@ img {
     margin: 10px;
 }
 
+@media (max-width: 1300px) {
+        margin-top: 2rem;
+        padding: 2rem 2rem;
+        font-size: 1rem;
+    }
+
+    img {
+        height: 20vh;
+    }
+
+    h2 {
+        position: relative;
+        text-align: center;
+        padding: 2rem;
+    }
+
 `;
 const Imgwrap = styled.div`
 display: flex;
@@ -127,6 +143,11 @@ video {
     
     
 }
+@media (max-width: 1300px) {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 `;
 
 

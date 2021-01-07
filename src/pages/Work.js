@@ -53,6 +53,10 @@ const Container = styled(motion.div)`
     h2{
         padding: 1rem 0rem;
     }
+    
+    @media (max-width: 1300px) {
+        padding: 2rem 2rem;
+    }
 `;
 
 const Project = styled.div`

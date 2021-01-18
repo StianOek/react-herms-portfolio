@@ -40,15 +40,17 @@ const [element, controls] = useScroll();
                         <div className="icon">
                             <img alt="icon of adobe xd" src={money} />
                             <h3>Affordable</h3>
+                            
                         </div>
-                        <p></p>
+                        <p>I wont make your wallet burn, Lets talk and we'll get an agreement</p>
+                        
                     </Card>
                     <Card>
                         <div className="icon">
                             <img alt="icon of java" src={diaphragm} />
                             <h3>Trust</h3>
                         </div>
-                        <p></p>
+                        <p>Trust is in focus. I belive that, lorem forem with a cup of gorem, we lorem fix the problem!</p>
                     </Card>
                 </Cards>
             </Description>

@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Work from './pages/Work';
 import Detail from './pages/WorkDetails';
 
+
 import { Switch, Route, useLocation } from 'react-router-dom';
 
 
@@ -44,9 +45,13 @@ console.log(location)
             <Detail />
           </Route>
 
-          <Route path="/contact">
+          
+
+          <Route exact path="/contact">
               <Contact />
           </Route>
+
+        
         </Switch>
       </AnimatePresence>
       

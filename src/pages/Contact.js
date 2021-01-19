@@ -1,31 +1,70 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
-import emailjs from 'emailjs-com'
 
 //Animation
 import {motion} from 'framer-motion';
 import {pageAnimation, titleAnimation, LineAnimation} from '../Animation';
+import Axios from 'axios';
 
 
-const Contact = () => {
+class Contact extends Component  {
 
-    function sendEmail(e) {
-        e.preventDefault();
+   state = {
+         name: '',
+         email: '',
+         message: '',
+         disabled: false,
+         emailSent: null
+   }
+
+
+   handleChange = (event) => {
+      
+
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        })
+   }
+
+   handleSubmit = (event) => {
+       event.preventDefault();
+
+       this.setState({
+           disabled: true
+           
+       })
+
+       Axios.post('http://localhost:3030/api/email', this.state)
+        .then(res => {
+            if(res.data.success) {
+                this.setState({
+                    disabled: false,
+                    emailSent: true
+                });
+            } else {
+                this.setState({
+                    disabled: false,
+                    emailSent: false
+                });
+            }
+            
+        })
+        .catch(err => {
+            this.setState({
+                disabled: false,
+                emailSent: false
+            })
+        })
+
+   }
     
-        emailjs.sendForm('service_kpiuh5j', 'template_83fyzmq', e.target, 'user_Nr8Sxj77Ob4omNzw4xBvL')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-          e.target.reset();
-      }
-     
-      let message = "You succesfully sent a message";
-
-    return(
-        <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
+render() {
+    return (
+            <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
             
                 <Title>
                         <Hide>
@@ -37,31 +76,52 @@ const Contact = () => {
                    
 
                
-                    <form onSubmit={sendEmail}>
+                    <form onSubmit={this.handleSubmit}>
                         <Wrapper className="wrapper">
                           
                             <InputWrapper className="input">
-                                <Input type="text" name="name" placeholder="Enter name" className="name-input" />
+                                <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter name" className="name-input" />
                             </InputWrapper>
                             <InputWrapper className="input">
-                                <Input type="email" name="email" placeholder="Enter Email" className="email-input" />
+                                <Input type="email" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" className="email-input" />
                             </InputWrapper>
                             <InputWrapper className="input">
-                                <Textarea name="message" cols="80" row="20" placeholder="Your message" className="text-input"/>
+                                <Textarea name="message" cols="80" row="20" onChange={this.handleChange} value={this.state.message} placeholder="Your message" className="text-input"/>
                             </InputWrapper>
                             <InputWrapper className="input">
-                                <InputBtn type="submit" value="Send message" className="btn" />
+                                <InputBtn type="submit" value="Send message" disabled={this.state.disabled} className="btn" />
                             </InputWrapper>
                         </Wrapper>
+
+                        {this.state.emailSent === true && <SuccessMsg>Email Sent</SuccessMsg>}
+                        {this.state.emailSent === false && <ErrorMsg>Email not Sent</ErrorMsg>}
                     </form>   
 
-                    <p>{message}</p>    
-        </ContatcStyle>
+                     
+            </ContatcStyle>
 
         
         
-    )
+        )
+    }
 }
+
+const SuccessMsg = styled.p`
+color:#57A773;
+margin: 20px 0;
+display: flex; 
+justify-content: center;
+
+`
+
+const ErrorMsg = styled.p`
+color:#EE6345;
+margin: 20px 0;
+display: flex; 
+justify-content: center;
+
+`
+    
 
 const ContatcStyle = styled(motion.div)`
 padding: 5rem 10rem;

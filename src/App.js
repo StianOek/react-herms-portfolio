@@ -15,6 +15,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 
 //Animation
 import {AnimatePresence} from 'framer-motion';
+import Navbar from './components/burgerMenu/Navbar';
 
 
 
@@ -29,7 +30,7 @@ console.log(location)
   return (
     <div className="App">
       <GlobalStyle />
-      
+      <Navbar />
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>

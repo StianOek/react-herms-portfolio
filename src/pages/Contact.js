@@ -9,6 +9,8 @@ import Axios from 'axios';
 
 class Contact extends Component  {
 
+    
+
    state = {
          name: '',
          email: '',
@@ -19,7 +21,7 @@ class Contact extends Component  {
 
 
    handleChange = (event) => {
-      
+    event.preventDefault();
 
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -41,9 +43,11 @@ class Contact extends Component  {
        Axios.post('http://localhost:3030/api/email', this.state)
         .then(res => {
             if(res.data.success) {
+                console.log(res)
                 this.setState({
                     disabled: false,
                     emailSent: true
+                
                 });
             } else {
                 this.setState({
@@ -80,13 +84,13 @@ render() {
                         <Wrapper className="wrapper">
                           
                             <InputWrapper className="input">
-                                <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter name" className="name-input" />
+                                <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter name" className="name-input" required />
                             </InputWrapper>
                             <InputWrapper className="input">
-                                <Input type="email" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" className="email-input" />
+                                <Input type="email" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" className="email-input" required />
                             </InputWrapper>
                             <InputWrapper className="input">
-                                <Textarea name="message" cols="80" row="20" onChange={this.handleChange} value={this.state.message} placeholder="Your message" className="text-input"/>
+                                <Textarea name="message" cols="80" row="20" onChange={this.handleChange} value={this.state.message} placeholder="Your message" className="text-input" required/>
                             </InputWrapper>
                             <InputWrapper className="input">
                                 <InputBtn type="submit" value="Send message" disabled={this.state.disabled} className="btn" />
@@ -131,6 +135,11 @@ width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+h2{
+    font-size: 4rem;
+}
+
 
 
 @media (max-width: 1300px) {

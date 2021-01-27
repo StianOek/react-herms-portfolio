@@ -2,15 +2,16 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 const Side = () => {
 
     const menuOpen = useSelector(state => state.menuOpen);
+    const dispatch = useDispatch();
     
 
     return(
-        <SideContainer clicked={menuOpen}>
+        <SideContainer clicked={menuOpen} onClick={() => dispatch({type: 'TOGGLED'})}>
             <SidebarWrapper>
                 <Link to="/">
                     about

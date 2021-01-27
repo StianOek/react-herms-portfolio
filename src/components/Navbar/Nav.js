@@ -15,10 +15,13 @@ const COLORS = {
   };
 
 const Nav = () => {
+    // Redux
 
     const menuOpen = useSelector(state => state.menuOpen);
     const dispatch = useDispatch();
 
+    // Hooks
+    
     //const [click, setClick] = useState(false);
     //const handleClick = () => setClick(!click);
 
@@ -37,7 +40,7 @@ const Nav = () => {
             <MenuLabel onClick={() => dispatch({type: 'TOGGLED'})} htmlFor="navi-toggle" >
                 <Icon clicked={menuOpen}></Icon>
             </MenuLabel>
-            <Side click={menuOpen} />
+            <Side click={menuOpen}/>
             <ul>
                 <li>
                     <Link to="/"><span>.</span> About</Link>

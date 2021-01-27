@@ -115,6 +115,7 @@ font-weight: lighter;
 
     @media (max-width: 1300px) {
         margin-bottom: 5rem;
+        
     }
    
 `;

@@ -12,7 +12,7 @@ import {motion} from 'framer-motion';
 
     @media (max-width: 1300px) {
         display: block;
-        padding: 2rem 2rem;
+        padding: 8rem 2rem;
         text-align: center;
         
     }
@@ -63,6 +63,7 @@ export const Image = styled(motion.div)`
             width: 100%;
             height: 40vh;
             object-fit: cover;
+            margin-top: 4rem;
         }
     }
 

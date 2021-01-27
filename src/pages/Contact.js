@@ -80,7 +80,7 @@ render() {
                    
 
                
-                    <form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={this.handleSubmit}>
                         <Wrapper className="wrapper">
                           
                             <InputWrapper className="input">
@@ -99,7 +99,7 @@ render() {
 
                         {this.state.emailSent === true && <SuccessMsg>Email Sent</SuccessMsg>}
                         {this.state.emailSent === false && <ErrorMsg>Email not Sent</ErrorMsg>}
-                    </form>   
+                    </Form>   
 
                      
             </ContatcStyle>
@@ -217,7 +217,11 @@ width: 100%;
 `
 
 
-
+const Form = styled.form`
+@media (max-width: 1300px) {
+    margin-top: 2rem;
+}
+`;
 
 
 

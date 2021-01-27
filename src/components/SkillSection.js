@@ -26,7 +26,7 @@ const [element, controls] = useScroll();
                             <img alt="icon of react" src={clock} />
                             <h3>Efficent</h3>
                         </div>
-                        <p>I spend all my effort and time on one project at a time</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>
                     <Card>
                         <div className="icon">
@@ -34,7 +34,7 @@ const [element, controls] = useScroll();
                             <h3>Teamwork</h3>
                             
                         </div>
-                        <p>I work best with continuasly contact with my client</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>
                     <Card>
                         <div className="icon">
@@ -42,7 +42,7 @@ const [element, controls] = useScroll();
                             <h3>Affordable</h3>
                             
                         </div>
-                        <p>I wont make your wallet burn, Lets talk and we'll get an agreement</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         
                     </Card>
                     <Card>
@@ -50,7 +50,7 @@ const [element, controls] = useScroll();
                             <img alt="icon of java" src={diaphragm} />
                             <h3>Trust</h3>
                         </div>
-                        <p>Trust is in focus. I belive that, lorem forem with a cup of gorem, we lorem fix the problem!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>
                 </Cards>
             </Description>

@@ -2,7 +2,7 @@ import React from 'react'
 import AboutMe from './pages/AboutMe'
 
 import GlobalStyle from './components/GlobalStyle'
-import Nav from './components/Nav';
+import Nav from './components/Navbar/Nav';
 import Contact from './pages/Contact';
 import Work from './pages/Work';
 import Detail from './pages/WorkDetails';
@@ -22,6 +22,7 @@ import {AnimatePresence} from 'framer-motion';
 
 
 
+
 function App() {
 
 const location = useLocation();
@@ -30,7 +31,7 @@ console.log(location)
   return (
     <div className="App">
       <GlobalStyle />
-     
+      
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>

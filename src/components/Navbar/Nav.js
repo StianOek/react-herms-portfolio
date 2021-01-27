@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {useLocation} from 'react-router-dom';
-
 import {Link} from 'react-router-dom';
 import Side from '../Sidebar/Side';
+
+import {useSelector, useDispatch} from 'react-redux';
 
 
 
@@ -15,8 +16,11 @@ const COLORS = {
 
 const Nav = () => {
 
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+    const menuOpen = useSelector(state => state.menuOpen);
+    const dispatch = useDispatch();
+
+    //const [click, setClick] = useState(false);
+    //const handleClick = () => setClick(!click);
 
     
 
@@ -30,10 +34,10 @@ const Nav = () => {
         
        
             <h1><Link to="/">Herms</Link></h1>
-            <MenuLabel onClick={handleClick} htmlFor="navi-toggle" >
-                <Icon clicked={click}></Icon>
+            <MenuLabel onClick={() => dispatch({type: 'TOGGLED'})} htmlFor="navi-toggle" >
+                <Icon clicked={menuOpen}></Icon>
             </MenuLabel>
-            <Side click={click} handleClick={handleClick}/>
+            <Side click={menuOpen} />
             <ul>
                 <li>
                     <Link to="/"><span>.</span> About</Link>
@@ -153,8 +157,8 @@ const MenuLabel = styled.label`
     @media (max-width: 1300px) {
         display: block;
         position: absolute;
-        top: -2rem;
-        right: 0;
+        top: -2.5rem;
+        right: 1rem;
         transform: translate(-100%, 60%);
         cursor: pointer;
         z-index: 600;
@@ -163,13 +167,12 @@ const MenuLabel = styled.label`
 
 const Icon = styled.span`
   position: relative;
-  background-color: #23d997;
+  background-color:${(menuOpen) => (menuOpen.clicked ? "transparent" : "#23d997")} ;
   width: 2rem;
   height: 2px;
   display: inline-block;
   margin-top: 3.5rem;
   transition: all 0.3s;
-  transform: ${(props) => (props.clicked ? "rotate(45deg)" : "rotate(0)")};
   &::before,
   &::after {
     content: "";
@@ -184,18 +187,18 @@ const Icon = styled.span`
     
   }
   &::before {
-    top: ${(props) => (props.clicked ? "0" : "-0.8rem")};
-    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
+    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "-0.8rem")};
+    transform: ${(menuOpen) => (menuOpen.clicked ? "rotate(135deg)" : "rotate(0)")};
   }
   &::after {
-    top: ${(props) => (props.clicked ? "0" : "0.8rem")};
-    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
+    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "0.8rem")};
+    transform: ${(menuOpen) => (menuOpen.clicked ? "rotate(-135deg)" : "rotate(0)")};
   }
   ${MenuLabel}:hover &::before {
-    top: ${(props) => (props.clicked ? "0" : "-1rem")};
+    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "1rem")};
   }
   ${MenuLabel}:hover &::after {
-    top: ${(props) => (props.clicked ? "0" : "1rem")};
+    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "-1rem")};
   }
 `;
 

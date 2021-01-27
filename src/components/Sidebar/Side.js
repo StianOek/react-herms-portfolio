@@ -2,9 +2,15 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-const Side = ({click, handleClick}) => {
+import {useSelector} from 'react-redux';
+
+const Side = () => {
+
+    const menuOpen = useSelector(state => state.menuOpen);
+    
+
     return(
-        <SideContainer clicked={click} onClick={handleClick}>
+        <SideContainer clicked={menuOpen}>
             <SidebarWrapper>
                 <Link to="/">
                     about
@@ -27,11 +33,11 @@ const SideContainer = styled.aside`
     z-index: 599;
     width: 200px;
     height: 100vh;
-    background: #fff;
+    background: #f1f1f1;
     display: grid;
     align-items: center;
     top: 0;
-    right: ${(props) => (props.clicked ? "0" : "-200px")};
+    right: ${(menuOpen) => (menuOpen.clicked ? "0" : "-200px")};
     transition: 0.3s ease-in-out;
     opacity: 1;
     border-left: 1px solid #23d997;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {useLocation} from 'react-router-dom';
@@ -9,10 +9,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 
 
-const COLORS = {
-    primaryDark: "#115b4c",
-    primaryLight: "#B6EDC8",
-  };
+
 
 const Nav = () => {
     // Redux
@@ -153,14 +150,18 @@ transform: translate(-100%, -50%);
 
 
 //Hamburger styles
-const MenuLabel = styled.label`
+const MenuLabel = styled.div`
     display: none;
  
 
     @media (max-width: 1300px) {
-        display: block;
+        display: flex;
+        justify-content:center;
+        align-items: center;
         position: absolute;
-        top: -2.5rem;
+        width: 2rem;
+        height: 1.5rem;
+        top: 2.5rem;
         right: 1rem;
         transform: translate(-100%, 60%);
         cursor: pointer;
@@ -173,14 +174,16 @@ const Icon = styled.span`
   background-color:${(menuOpen) => (menuOpen.clicked ? "transparent" : "#23d997")} ;
   width: 2rem;
   height: 2px;
-  display: inline-block;
-  margin-top: 3.5rem;
+  right: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s;
   &::before,
   &::after {
     content: "";
     background-color: black;
-    width: 2rem;
+    width: 2.4rem;
     height: 2px;
     display: inline-block;
     position: absolute;
@@ -198,10 +201,10 @@ const Icon = styled.span`
     transform: ${(menuOpen) => (menuOpen.clicked ? "rotate(-135deg)" : "rotate(0)")};
   }
   ${MenuLabel}:hover &::before {
-    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "1rem")};
+    left: ${(menuOpen) => (menuOpen.clicked ? "0" : "0.5rem")};
   }
   ${MenuLabel}:hover &::after {
-    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "-1rem")};
+    left: ${(menuOpen) => (menuOpen.clicked ? "0" : "-0.5rem")};
   }
 `;
 

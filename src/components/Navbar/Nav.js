@@ -34,10 +34,10 @@ const Nav = () => {
         
        
             <h1><Link to="/">Herms</Link></h1>
-            <MenuLabel onClick={() => dispatch({type: 'TOGGLED'})} htmlFor="navi-toggle" >
+            <MenuLabel onClick={() => dispatch({type: 'TOGGLED'})} >
                 <Icon clicked={menuOpen}></Icon>
             </MenuLabel>
-            <Side click={menuOpen}/>
+            <Side clicked={menuOpen}/>
             <ul>
                 <li>
                     <Link to="/"><span>.</span> About</Link>
@@ -167,6 +167,8 @@ const MenuLabel = styled.div`
         cursor: pointer;
         z-index: 600;
     }
+
+   
 `;
 
 const Icon = styled.span`
@@ -193,19 +195,22 @@ const Icon = styled.span`
     
   }
   &::before {
-    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "-0.8rem")};
-    transform: ${(menuOpen) => (menuOpen.clicked ? "rotate(135deg)" : "rotate(0)")};
+    top: ${(props) => (props.clicked ? "0" : "-0.8rem")};
+    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
   }
   &::after {
-    top: ${(menuOpen) => (menuOpen.clicked ? "0" : "0.8rem")};
-    transform: ${(menuOpen) => (menuOpen.clicked ? "rotate(-135deg)" : "rotate(0)")};
+    top: ${(props) => (props.clicked ? "0" : "0.8rem")};
+    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
   }
   ${MenuLabel}:hover &::before {
-    left: ${(menuOpen) => (menuOpen.clicked ? "0" : "0.5rem")};
+    top: ${(props) => (props.clicked ? "0" : "-1rem")};
   }
   ${MenuLabel}:hover &::after {
-    left: ${(menuOpen) => (menuOpen.clicked ? "0" : "-0.5rem")};
+    top: ${(props) => (props.clicked ? "0" : "1rem")};
   }
+ 
+ 
+
 `;
 
 

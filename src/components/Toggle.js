@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 
-
+// reusable toggle component. all it takes is to wrap Toggle around another component!
 
 const Toggle = ({children, title}) => {
 
@@ -11,9 +11,9 @@ const Toggle = ({children, title}) => {
 
     return(
         <motion.div layout onClick={() => setToggle(!toggle)}>
-            <Title layout whileHover={{ x: 10}}>{title}</Title>
+            <Title layout whileHover={{ x: 4}}>{title}</Title>
             { toggle ? children : ''}
-            <div layout className="line"></div>
+            <motion.div layout  className="line"></motion.div>
         </motion.div>
     )
 }

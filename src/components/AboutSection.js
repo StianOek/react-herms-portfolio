@@ -57,6 +57,9 @@ const AboutSection = () => {
     )
 };
 
+
+// Styles imported from styles.js component!
+
 //Styling
 // const About = styled.div`
 //     min-height: 90vh;

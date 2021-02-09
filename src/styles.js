@@ -9,7 +9,7 @@ import {motion} from 'framer-motion';
     justify-content: center;
     padding: 5rem 10rem;
     color: white;
-
+    
     @media (max-width: 1300px) {
         display: block;
         padding: 8rem 2rem;

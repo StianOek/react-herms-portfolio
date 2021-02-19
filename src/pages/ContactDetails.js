@@ -30,21 +30,51 @@ const ContactDetails = () => {
         
         <div>
             <form onSubmit={sendEmail}>
-                    <Wrapper className="wrapper">
-                        <h2>Let's Talk</h2>
-                        <InputWrapper className="input">
-                            <Input type="text" name="name" placeholder="Enter name" className="name-input" />
-                        </InputWrapper>
-                        <InputWrapper className="input">
-                            <Input type="email" name="email" placeholder="Enter Email" className="email-input" />
-                        </InputWrapper>
-                        <InputWrapper className="input">
-                            <Textarea name="message" cols="80" row="20" placeholder="Your message" className="text-input"/>
-                        </InputWrapper>
-                        <InputWrapper className="input">
-                            <InputBtn type="submit" value="Send message" className="btn" />
-                        </InputWrapper>
-                    </Wrapper>
+                <Wrapper>
+
+                    <h2>Let's Talk</h2>
+
+                    <InputWrapper>
+
+                        <Input type="text"
+                               name="name" 
+                               placeholder="Enter name" 
+                               className="name-input" 
+                        />
+
+                    </InputWrapper>
+
+                    <InputWrapper>
+
+                        <Input type="email" 
+                               name="email" 
+                               placeholder="Enter Email" 
+                               className="email-input" 
+                        />
+
+                    </InputWrapper>
+
+                    <InputWrapper>
+
+                        <Textarea name="message" 
+                                  cols="80" 
+                                  row="20" 
+                                  placeholder="Your message" 
+                                  className="text-input"
+                        />
+
+                    </InputWrapper>
+
+                    <InputWrapper>
+
+                        <InputBtn type="submit" 
+                                  value="Send message" 
+                                  className="btn" 
+                        />
+
+                    </InputWrapper>
+
+                </Wrapper>
                 </form>
         </div>
        

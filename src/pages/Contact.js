@@ -12,11 +12,11 @@ class Contact extends Component  {
     
 
    state = {
-         name: '',
-         email: '',
-         message: '',
-         disabled: false,
-         emailSent: null
+        name: '',
+        email: '',
+        message: '',
+        disabled: false,
+        emailSent: null
    }
 
 
@@ -68,41 +68,83 @@ class Contact extends Component  {
     
 render() {
     return (
-            <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
+
+        <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
             
-                <Title>
-                        <Hide>
-                            <motion.h2 variants={titleAnimation}>Let's <span>Talk</span></motion.h2>
-                            <motion.div variants={LineAnimation} className="line"></motion.div>
-                        </Hide>
-                    </Title>
+            <Title>
+                <Hide>
+                    <motion.h2 variants={titleAnimation}>Let's <span>Talk</span></motion.h2>
+                    <motion.div variants={LineAnimation} className="line"></motion.div>
+                </Hide>
+            </Title>
 
-                   
 
-               
-                    <Form onSubmit={this.handleSubmit}>
-                        <Wrapper className="wrapper">
+            <Form onSubmit={this.handleSubmit}>
+                <Wrapper className="wrapper">
                           
-                            <InputWrapper className="input">
-                                <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter name" className="name-input" required />
-                            </InputWrapper>
-                            <InputWrapper className="input">
-                                <Input type="email" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" className="email-input" required />
-                            </InputWrapper>
-                            <InputWrapper className="input">
-                                <Textarea name="message" cols="80" row="20" onChange={this.handleChange} value={this.state.message} placeholder="Your message" className="text-input" required/>
-                            </InputWrapper>
-                            <InputWrapper className="input">
-                                <InputBtn type="submit" value="Send message" disabled={this.state.disabled} className="btn" />
-                            </InputWrapper>
-                        </Wrapper>
+                    <InputWrapper className="input">
 
-                        {this.state.emailSent === true && <SuccessMsg>Email Sent</SuccessMsg>}
-                        {this.state.emailSent === false && <ErrorMsg>Email not Sent</ErrorMsg>}
-                    </Form>   
+                        <Input type="text" 
+                               name="name" 
+                               onChange={this.handleChange} 
+                               value={this.state.name} 
+                               placeholder="Enter name" 
+                               className="name-input" 
+                               required 
+                        />
 
-                     
-            </ContatcStyle>
+                    </InputWrapper>
+
+                    <InputWrapper className="input">
+
+                        <Input type="email" 
+                               name="email" 
+                               onChange={this.handleChange} 
+                               value={this.state.email} 
+                               placeholder="Enter Email" 
+                               className="email-input" 
+                               required 
+                        />
+
+                    </InputWrapper>
+
+                    <InputWrapper className="input">
+
+                        <Textarea name="message" 
+                                  cols="80" 
+                                  row="20" 
+                                  onChange={this.handleChange} 
+                                  value={this.state.message} 
+                                  placeholder="Your message" 
+                                  className="text-input" 
+                                  required
+                        />
+
+                    </InputWrapper>
+
+                    <Note>Note: Contact page is under develping. Please, if you do send a message leave a name and a reachable email. Thanks for understanding</Note>
+
+                    <InputWrapper className="input">
+
+                        <InputBtn type="submit" 
+                                  value="Send message" 
+                                  disabled={this.state.disabled} 
+                                  className="btn" 
+                        />
+
+                    </InputWrapper>
+                            
+                </Wrapper>
+                        
+
+                {this.state.emailSent === true && <SuccessMsg>Email Sent</SuccessMsg>}
+                {this.state.emailSent === false && <ErrorMsg>Email did not send</ErrorMsg>}
+            </Form>   
+                    
+
+                    
+        </ContatcStyle>
+            
 
         
         
@@ -110,59 +152,84 @@ render() {
     }
 }
 
-const SuccessMsg = styled.p`
-color:#57A773;
-margin: 20px 0;
-display: flex; 
-justify-content: center;
+const Note = styled.h6`
 
-`
+    font-size: 1rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1300px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        margin: 0 1rem;
+        padding: 0 1rem;
+    }
+`;
+
+const SuccessMsg = styled.p`
+
+    color:#57A773;
+    margin: 20px 0;
+    display: flex; 
+    justify-content: center;
+
+`;
 
 const ErrorMsg = styled.p`
-color:#EE6345;
-margin: 20px 0;
-display: flex; 
-justify-content: center;
 
-`
+    color:#EE6345;
+    margin: 20px 0;
+    display: flex; 
+    justify-content: center;
+
+`;
     
-
 const ContatcStyle = styled(motion.div)`
-padding: 5rem 10rem;
-color: #353535;
-min-height: 90vh;
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
 
-h2{
-    font-size: 4rem;
-}
+    padding: 5rem 10rem;
+    color: #353535;
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-
-
-@media (max-width: 1300px) {
-        
-        padding: 2rem 2rem;
-        font-size: 1rem
+    h2{
+        font-size: 4rem;
     }
-`
+
+
+
+    @media (max-width: 1300px) {
+            
+            padding: 2rem 2rem;
+            font-size: 1rem
+        }
+`;
+
 const Title = styled.div`
-margin-bottom: 1rem;
-text-align: center;
-color: #212121;
-@media (max-width: 1300px) {
-        margin-top: 5rem;
-    }
-`
+
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #212121;
+    @media (max-width: 1300px) {
+            margin-top: 5rem;
+        }
+`;
 
 const Hide = styled.div`
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     .line {
             height: 0.1rem;
             background: #212121;
@@ -170,57 +237,63 @@ flex-direction: column;
             width: 100%;
         }
        
-`
+`;
 
 const Input = styled.input`
-width: 100%;
-outline: none;
-border: 1px solid #212121;
-padding: 5px;
-margin: 5px;
-`
+
+    width: 100%;
+    outline: none;
+    border: 1px solid #212121;
+    padding: 5px;
+    margin: 5px;
+`;
 
 const Textarea = styled.textarea`
-width: 100%;
-height: 200px;
-outline: none;
-border: 1px solid #212121;
-padding: 5px;
-margin: 5px;
-`
+
+    width: 100%;
+    height: 200px;
+    outline: none;
+    border: 1px solid #212121;
+    padding: 5px;
+    margin: 5px;
+`;
 
 const InputBtn = styled.input`
-width: 100%;
-outline: none;
-border: 1px solid #23d997;
-padding: 5px;
-margin: 5px;
-background: #23d997;
-color: #fff;
-cursor: pointer;
-text-transform: uppercase;
-`
+
+    width: 100%;
+    outline: none;
+    border: 1px solid #23d997;
+    padding: 5px;
+    margin: 5px;
+    background: #23d997;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+`;
 
 const Wrapper = styled.div`
-width: 100%;
-height: 30vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
 
-`
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+`;
 
 
 const InputWrapper = styled.div`
-width: 100%;
-`
+
+    width: 100%;
+`;
 
 
 const Form = styled.form`
-@media (max-width: 1300px) {
-    margin-top: 2rem;
-}
+
+    @media (max-width: 1300px) {
+        margin-top: 10rem;
+    }
 `;
 
 

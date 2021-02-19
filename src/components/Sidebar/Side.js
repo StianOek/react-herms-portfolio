@@ -17,14 +17,16 @@ const Side = () => {
         <SideContainer clicked={menuOpen} onClick={() => dispatch({type: 'TOGGLED'})} >
             <SidebarWrapper>
                 <li>
-                    <Link to="/">About</Link>
-                    
+                    <Link to="/">About<span>.</span></Link>
+                    <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/' ? "30%" : "0%"}}/>
                 </li>
                 <li>
-                    <Link to="/work">Work</Link>
+                    <Link to="/work">Work<span>.</span></Link>
+                    <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/work' ? "30%" : "0%"}}/>
                 </li>
                 <li>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact">Contact<span>.</span></Link>
+                    <UnderLineTwo transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/contact' ? "30%" : "0%"}}/>
                 </li>
             </SidebarWrapper>
         </SideContainer>
@@ -57,16 +59,16 @@ const SideContainer = styled.aside`
         padding: 2rem 0rem;
         align-items: center;
         justify-content: center;
-        text-transform: uppercase;
-        font-size: 2rem;
+        font-size: 1.3rem;
+        font-family: 'Roboto Mono', sans-serif;
         text-decoration: none;
         list-style-type: none;
         transition: 0.1s ease-in-out;
-        color: #23d997;
+        color: #212121;
         cursor: pointer;
 
         &:hover {
-            color: #212121;
+            color: #23d997;
         }
     }
 
@@ -84,8 +86,19 @@ height: 0.05rem;
 background: #29d997;
 width: 0%;
 position: absolute;
-top: 90%;
-left: 50%;
+top: 75%;
+left: 67%;
+transform: translate(-100%, -50%);
+`;
+
+const UnderLineTwo = styled(motion.div)`
+position: relative;
+height: 0.05rem;
+background: #29d997;
+width: 0%;
+position: absolute;
+top: 75%;
+left: 71%;
 transform: translate(-100%, -50%);
 `;
 

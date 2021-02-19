@@ -12,8 +12,9 @@ import styled from 'styled-components';
 import {useScroll} from './useScroll';
 import {scrollReveal} from '../Animation';
 
-const SkillSection = () => {
 
+
+const SkillSection = () => {
 const [element, controls] = useScroll();
 
     return (
@@ -36,7 +37,7 @@ const [element, controls] = useScroll();
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>
-                    <Card>
+                    <Card> 
                         <div className="icon">
                             <img alt="icon of adobe xd" src={money} />
                             <h3>Affordable</h3>

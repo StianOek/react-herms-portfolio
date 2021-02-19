@@ -1,32 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AboutMe from './pages/AboutMe'
-
 import GlobalStyle from './components/GlobalStyle'
 import Nav from './components/Navbar/Nav';
 import Contact from './pages/Contact';
 import Work from './pages/Work';
 import Detail from './pages/WorkDetails';
-
-
 import { Switch, Route, useLocation } from 'react-router-dom';
-
-
-
 
 //Animation
 import {AnimatePresence} from 'framer-motion';
-
-
-
-
-
-
 
 
 function App() {
 
 const location = useLocation();
 console.log(location)
+
+
+
+
 
   return (
     <div className="App">
@@ -40,14 +32,12 @@ console.log(location)
           </Route>
 
           <Route exact path="/work">
-              <Work />
+              <Work/>
           </Route>
 
           <Route path="/work/:id">
-            <Detail />
+            <Detail/>
           </Route>
-
-          
 
           <Route exact path="/contact">
               <Contact />

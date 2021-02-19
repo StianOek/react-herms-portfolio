@@ -1,46 +1,55 @@
 import React, {useState, useEffect} from 'react'
-
-import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { WorkState } from "../workState";
-
+import styled from 'styled-components';
+import  WorkState from "../workState";
 import vid from '../Video/typing.mp4';
-
 
 //Animation
 import {motion} from 'framer-motion';
 import {pageAnimation} from '../Animation';
 
-const Detail = () => {
-    
+
+
+
+const Detail = ({jobTitle}) => {
+
     const history = useHistory();
     const url = history.location.pathname;
-    const [works, setWorks] = useState(WorkState);
-    const [work, setWork] = useState(null);
+    const [work, setWork] = useState([]);
     
 
     //UseEffect
     useEffect(() => {
-        const currentWork = works.filter((stateWork) => stateWork.url === url);
-        setWork(currentWork[0]);
+        const currentWork = WorkState.find((stateWork) => stateWork.url === url);
+        if(currentWork) {
+            setWork([currentWork]);
+        }
+        if(jobTitle) {
+          const works = WorkState.filter((item) => jobTitle === item.jobTitle)
+          setWork(works);
+          console.log(works)
+        }
+        if(jobTitle ===  work) {
+           
+        }
         
-      }, [works, url]);
+      }, [WorkState, url,]);
       console.log(work)
       
 
     return (
-        <>
-        {work && (
-            <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden">
+       <>
+        {work.map((item) => <Container key={item.id} exit="exit" variants={pageAnimation} animate="show" initial="hidden">
                 <Headline>
-                <h2>{work.title}</h2>
+                <h2>{item.title}</h2>
+                <h3>{item.jobTitle}</h3>
                     <Imgwrap>
-                        <img src={work.mainImg} alt="main img" />
-                        <img src={work.pic} alt="main img" />
-                        <img src={work.pic2} alt="main img" />
+                        <img src={item.mainImg} alt="main img" />
+                        <img src={item.pic} alt="main img" />
+                        <img src={item.pic2} alt="main img" />
                     </Imgwrap>
                     <Desc>
-                        {work.desc.map((info) => (
+                        {item.desc.map((info) => (
                             <Info 
                             title={info.title}
                             description={info.description}
@@ -52,10 +61,12 @@ const Detail = () => {
                     
                 </Headline>
            
-            </Container>
-
-        )}
-        </>
+            </Container>) 
+            
+           
+                     
+        } 
+       </>
     )
     
 };
@@ -74,6 +85,10 @@ h2{
     left: 50%;
     transform: translate(-50%, -10%);
 }
+h3 {
+    text-align: center;
+    margin-bottom: 100px;
+}
 img {
     width: 30%;
     height: 30vh;
@@ -84,7 +99,7 @@ img {
 @media (max-width: 1300px) {
         margin-top: 2rem;
         padding: 2rem 2rem;
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
     img {
@@ -96,6 +111,7 @@ img {
         text-align: center;
         padding: 2rem;
     }
+
 
 `;
 const Imgwrap = styled.div`
@@ -112,6 +128,10 @@ display: flex;
 margin: 5rem 10rem;
 align-items: center;
 justify-content: space-around;
+
+@media (max-width: 1300px) {
+    margin: 0;
+}
 
 `;
 
@@ -134,6 +154,10 @@ h3{
 p{
     letter-spacing: 0.2rem;
     font-size: 1.2rem;
+    @media (max-width: 1300px) {
+        font-size: 1rem;
+        
+    }
     
 }
 video {

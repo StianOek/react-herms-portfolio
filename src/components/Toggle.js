@@ -11,8 +11,13 @@ const Toggle = ({children, title}) => {
 
     return(
         <motion.div layout onClick={() => setToggle(!toggle)}>
-            <Title layout whileHover={{ x: 4}}>{title}</Title>
+
+            <Title layout 
+                   whileHover={{ x: 4}}>
+                   {title}
+            </Title>
             { toggle ? children : ''}
+
             <motion.div layout  className="line"></motion.div>
         </motion.div>
     )

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import {motion} from 'framer-motion';
 
  export const About = styled(motion.div)`
@@ -60,10 +59,11 @@ export const Image = styled(motion.div)`
 
     @media (max-width: 1300px) {
         img {
-            width: 100%;
-            height: 40vh;
+            width: 80%;
+            height: 100%;
             object-fit: cover;
             margin-top: 4rem;
+            border-radius: 20px;
         }
     }
 

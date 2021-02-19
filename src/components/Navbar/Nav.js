@@ -5,8 +5,9 @@ import {useLocation} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Side from '../Sidebar/Side';
 
-import {useSelector, useDispatch} from 'react-redux';
 
+import {useSelector, useDispatch} from 'react-redux';
+import { toggle } from '../../actions/toggleAction';
 
 
 
@@ -34,7 +35,7 @@ const Nav = () => {
         
        
             <h1><Link to="/">Herms</Link></h1>
-            <MenuLabel onClick={() => dispatch({type: 'TOGGLED'})} >
+            <MenuLabel onClick={() => dispatch(toggle())} >
                 <Icon clicked={menuOpen}></Icon>
             </MenuLabel>
             <Side clicked={menuOpen}/>

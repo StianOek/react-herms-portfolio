@@ -39,12 +39,9 @@ const AboutSection = () => {
             </Description>
 
             <Image  
-                   whileHover={{ scale: 0.7, rotate: 15 }}
                    whileTap={{
                    scale: 0.5,
-                   rotate: -20,
-                   border: "5px solid #23d997",
-                   image: {sec}
+                   rotate: -2,
                    
                                        }} >
                 <motion.img variants={photoAnimation} src={myself} alt="Image of myself taking picture" />

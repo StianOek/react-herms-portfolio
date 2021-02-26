@@ -6,34 +6,82 @@ import {useLocation} from 'react-router-dom';
 
 import {useSelector, useDispatch} from 'react-redux';
 
+
+
+import nor from '../../img/no.svg';
+import eng from '../../img/en.svg';
+
+import { setLanguage } from '../../actions/language';
+
 const Side = () => {
+    const language = useSelector(state => state.layout.language);
 
     const {pathname} = useLocation();
 
-    const menuOpen = useSelector(state => state.menuOpen);
+    const menuOpen = useSelector(state => state.layout.menuOpen);
     const dispatch = useDispatch();
 
     return(
         <SideContainer clicked={menuOpen} onClick={() => dispatch({type: 'TOGGLED'})} >
             <SidebarWrapper>
                 <li>
-                    <Link to="/">About<span>.</span></Link>
+                    <Link to="/">{language === "no" ? "Om" : "About"}<span>.</span></Link>
                     <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/' ? "30%" : "0%"}}/>
                 </li>
                 <li>
-                    <Link to="/work">Work<span>.</span></Link>
+                    <Link to="/work">{language === "no" ? "Jobb" : "Work"}<span>.</span></Link>
                     <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/work' ? "30%" : "0%"}}/>
                 </li>
                 <li>
-                    <Link to="/contact">Contact<span>.</span></Link>
-                    <UnderLineTwo transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/contact' ? "30%" : "0%"}}/>
+                    <Link to="/contact">{language === "no" ? "Kontakt" : "Contact"}<span>.</span></Link>
+                    <UnderLineTwo transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/contact' ? "55%" : "0%"}}/>
                 </li>
+
+            <Flags className="desktop">
+				<Lang
+					src={nor}
+					alt="Norwegian"
+					active={language === "no"}
+					onClick={() => dispatch(setLanguage({ language: "no" }))}
+				/>
+				<Lang
+					active={language === "en"}
+					alt="English"
+					src={eng}
+					onClick={() => dispatch(setLanguage({ language: "en" }))}
+				/>
+			</Flags> 
+
             </SidebarWrapper>
         </SideContainer>
     )
 }
 
 export default Side;
+
+const Flags = styled.div`
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+	
+`;
+const Lang = styled.img`
+	width: 22px;
+	margin-left: 20px;
+	cursor: pointer;
+	top: -3px;
+	opacity: ${(props) => (props.active ? 1 : 0.5)};
+	border-bottom: ${(props) => (props.active ? "1px solid" : "none")};
+
+	&:first-child {
+		margin-left: 0px;
+	}
+   
+`;
 
 const SideContainer = styled.aside`
     position: fixed;
@@ -77,6 +125,10 @@ const SideContainer = styled.aside`
 
 const SidebarWrapper = styled.div`
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 `;
 
 

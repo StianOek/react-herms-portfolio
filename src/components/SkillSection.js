@@ -7,32 +7,43 @@ import diaphragm from '../img/diaphragm.svg';
 //landing pictures
 import home2 from '../img/code6.jpg'
 
-import {About, Description, Image, Hide} from '../styles'
+import {About, Description, Image} from '../styles'
 import styled from 'styled-components';
 import {useScroll} from './useScroll';
 import {scrollReveal} from '../Animation';
 
+import {useSelector} from 'react-redux';
+
 
 
 const SkillSection = () => {
-const [element, controls] = useScroll();
+
+    const language = useSelector(state => state.layout.language);
+
+    const [element, controls] = useScroll();
 
     return (
         <Skill variants={scrollReveal} animate={controls} ref={element}>
             <Description>
-                <h2>High <span>Quality</span> web products</h2>
+                <h2>
+                        {language === "no" ? "Høy " : "High "} 
+                    <span>
+                        {language === "no" ? "Kvalitet " : "Quality "} 
+                    </span> 
+                        {language === "no" ? "Nett produkter " : "Web products "}
+                </h2>
                 <Cards>
                     <Card>
                         <div className="icon">
                             <img alt="icon of react" src={clock} />
-                            <h3>Efficent</h3>
+                            <h3>{language === "no" ? "Effektivitet " : "Efficiency "}</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>
                     <Card>
                         <div className="icon">
                             <img alt="icon of javascript" src={teamwork} />
-                            <h3>Teamwork</h3>
+                            <h3>{language === "no" ? "Samarbeid " : "Teamwork "}</h3>
                             
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -40,7 +51,7 @@ const [element, controls] = useScroll();
                     <Card> 
                         <div className="icon">
                             <img alt="icon of adobe xd" src={money} />
-                            <h3>Affordable</h3>
+                            <h3>{language === "no" ? "Rimelig " : "Affordable "}</h3>
                             
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -49,7 +60,7 @@ const [element, controls] = useScroll();
                     <Card>
                         <div className="icon">
                             <img alt="icon of java" src={diaphragm} />
-                            <h3>Trust</h3>
+                            <h3>{language === "no" ? "Tillit " : "Trust "}</h3>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </Card>

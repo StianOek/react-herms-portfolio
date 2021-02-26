@@ -1,6 +1,16 @@
-import { createStore, combineReducers } from 'redux';
-import toggleReducer from './reducers/isToggle';
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers";
 
-const reducers = combineReducers({toggleReducer});
+const initialState = {};
 
-export default createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const middleware = [thunk];
+
+const store = createStore(
+	rootReducer,
+	initialState,
+	composeWithDevTools(applyMiddleware(...middleware))
+);
+
+export default store;

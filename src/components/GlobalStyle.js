@@ -21,34 +21,13 @@ body {
     overflow-X: hidden;
 }
 
-button {
-    font-weight: bold;
-    font-size: 1.1.rem;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    border: 1px solid #23d997;
-    border-radius: 50px;
-    background: transparent;
-    outline: none;
-    color: #212121;
-    text-transform: uppercase;
-    transition: all 0.5s ease;
-    &:hover {
-        background-color: #23d997; 
-        color: white;
-    }
-   
-}
 
 .title_one{
     font-size: 2.5rem;
 }
 .title_three {
     font-size: 2rem;
-
 }
-
-
 
 h2 {
     font-weight: lighter;
@@ -57,34 +36,33 @@ h2 {
     color: #212121;
     line-height: 4rem;
     text-transform: uppercase;
-
 }
-h3{
+
+h3 {
      color: #212121;
 }
-h4{
+
+h4 {
     font-weight: bold;
     color: #212121;
     font-size: 1.4rem;
     letter-spacing: 0.2rem;
-
-    
 }
+
 a {
     font-size: 1rem;
 }
 span { 
     font-weight: bold;
     color: #23d997; 
-    
-
 }
+
 p {
     padding: 3rem 0rem;
     color: #212121;
     font-size: 1.4rem;
     line-height: 150%;
-    }
+}
 
 .ref_p {
     font-style: italic;

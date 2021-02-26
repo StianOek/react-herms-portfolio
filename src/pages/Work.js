@@ -3,84 +3,118 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import  WorkState, {WEBDEVELOPER, CONSULTANT, FRONTEND, BACKEND}  from "../workState";
 
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedo,} from '@fortawesome/free-solid-svg-icons';
+
 
 //Animation
 import {motion} from 'framer-motion';
 import {pageAnimation, fade, photoAnimation, LineAnimation} from '../Animation';
 import ScrollTop from '../components/ScrollTop';
 
+import {useSelector} from 'react-redux';
+
 const ALL = "ALL";
 
 
 
 const Work = () => {
+    
+    const language = useSelector(state => state.layout.language);
 
     const [selectedWork, setSelectedWork] = useState(ALL);
-
     const handleSelectedWork = (newWork) => {
         setSelectedWork(newWork)
+        
+        
     }
 
 
-
+    console.log(selectedWork)
     return (
         <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden">
-            
-            <div className="filter">
-                <Btn 
-                    variants={fade}
-                    type="button" 
-                    onClick={() => {
-                        handleSelectedWork(ALL)
-                    }}
-                >
-                    All
-                </Btn>
-                <Btn 
-                    variants={fade}
-                    type="button" 
-                    onClick={() => {
-                        handleSelectedWork(WEBDEVELOPER)
-                    }}
-                >
-                    Web developer
-                </Btn>
-                <Btn 
-                    variants={fade}
-                    type="button" 
-                    onClick={() => {
-                        handleSelectedWork(CONSULTANT)
-                    }}
-                >
-                    Consultant
-                </Btn>
-                <Btn 
-                    variants={fade}
-                    type="button" 
-                    onClick={() => {
-                        handleSelectedWork(BACKEND)
-                    }}
-                >
-                    Back-end
-                </Btn>
-                <Btn 
-                    variants={fade}
-                    type="button" 
-                    onClick={() => {
-                        handleSelectedWork(FRONTEND)
-                    }}
-                >
-                    Front-End
-                </Btn>
+            <AllBtnWrapper>
+                <BtnWrapper>
                     
-            </div>
-            {WorkState.map(work => {
+                    <Btn 
+                        active={selectedWork === ALL || selectedWork === WEBDEVELOPER}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(WEBDEVELOPER)
+                        }}
+                    >
+                        {language === "no" ? "Web utvikler" : "Web developer"}
+                    </Btn>
+                    <Btn 
+                        active={selectedWork === ALL || selectedWork === CONSULTANT}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(CONSULTANT)
+                        }}
+                    >
+                        {language === "no" ? "Konsulent" : "Consultant"}
+                    </Btn>
+                    <Btn 
+                        active={selectedWork === ALL || selectedWork === BACKEND}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(BACKEND)
+                        }}
+                    >
+                        Back-end
+                    </Btn>
+                    <Btn 
+                        active={selectedWork === ALL || selectedWork === FRONTEND}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(FRONTEND)
+                        }}
+                    >
+                        Front-End
+                    </Btn>
+        
+                </BtnWrapper>       
+                <ClearBtnWrapper>
+                    <ClearBtn 
+                        active={selectedWork === ALL}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(ALL)
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faRedo} size="xs" transform={{ rotate: 2 }} swapOpacity className="icon"/>
+                        {language === "no" ? "Forfriske" : "Refresh"}
+                    </ClearBtn>
+                </ClearBtnWrapper>
+            </AllBtnWrapper> 
+
+            {WorkState.filter(work => {
                 if(selectedWork !== ALL) {
-                    const idx = work.categories.findIndex((category) => (category === selectedWork));
-                    if (idx === -1) {
-                        return null;
-                    }
+                    return work.categories.find((category) => (category === selectedWork))
+                    //const idx = work.categories.findIndex((category) => (category === selectedWork));
+                    // if (idx === -1) {
+                    //   return false;
+                    //}
                 }
+                    return true;
+                }).map(work => {
+                
 
                 return (
 
@@ -108,20 +142,123 @@ const Work = () => {
     )
 };
 
-        
- const Btn = styled(motion.button)`
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    
-    text-transform: none;
-    
- `
 
+
+const ClearBtnWrapper = styled.div`
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+        @media (max-width: 1300px) {
+            display: flex;
+            align-items: center;
+            
+        }
+`;
+     
+const BtnWrapper = styled.div`
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+        @media (max-width: 1300px) {
+            display: flex;
+            align-items: center;
+            
+            
+        }
+
+
+`;
+
+const AllBtnWrapper = styled.div`
+   display: grid;
+   align-items: center;
+   justify-content: center;
+   position: sticky;
+   
+`;
+
+const ClearBtn = styled(motion.button)`
+    position: relative;
+    outline: none;
+    font-weight: lighter;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    background: none;
+    outline: none;
+    color: #212121;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Roboto Mono', monospace;
+    &:hover { 
+        color: #23d997;
+        bottom: 2px;
+        
+    }
+
+    .icon {
+        margin-right: 15px;
+        
+        
+    }
+    
+
+    
+`;
+
+const Btn = styled(motion.button)`
+    position: relative;
+    outline: none;
+    font-weight: lighter;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    border: none;
+    margin: 1rem;
+    background: ${(props) => (props.clicked ? "#23d997" : "transparent")};
+    opacity: ${(props) => (`${props.active ? 1 : 0.5} !important`)}; 
+    outline: none;
+    color: #212121;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: #23d997;
+    }
+    &:hover::before {
+        top: 2rem;
+        
+    } 
+
+    &:before {
+        content: "";
+        position: absolute;
+        border-bottom: 1px solid #23d997;
+        display: block;
+        width: 100%;
+        top: 1.5rem;
+        transition: all 0.5s ease-in-out;
+    }
+
+   
+
+    @media (max-width: 1300px) {
+      margin: 1rem;
+      
+     
+    }
+    
+ `;
 
 const Container = styled(motion.div)`
     min-height: 100vh;
     overflow: hidden;
-    padding: 5rem 10rem;
+    padding: 0 10rem;
 
     h2{
         padding: 1rem 0rem;
@@ -150,21 +287,5 @@ const Hide = styled.div`
     overflow: hidden;
 `;
 
-// Frame Animation
-const Frame1 = styled(motion.div)`
-    position: fixed;
-    left: 0;
-    top: 10%;
-    width: 100%;    
-    height: 100vh;
-    background: #000;
-    z-index: 2;
-`
-const Frame2 = styled(Frame1)`
-    background: #eee;
-`
-const Frame3 = styled(Frame1)`
-    background: #23d997;
-`
 
 export default Work;

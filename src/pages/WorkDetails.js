@@ -100,6 +100,9 @@ img {
         margin-top: 2rem;
         padding: 2rem 2rem;
         font-size: 0.5rem;
+        h3{
+        font-size: 1.2rem;
+    }
     }
 
     img {
@@ -111,6 +114,10 @@ img {
         text-align: center;
         padding: 2rem;
     }
+
+    
+
+    
 
 
 `;

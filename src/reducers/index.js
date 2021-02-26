@@ -1,10 +1,9 @@
-import toggleReducer from '../reducers/isToggle';
+import layoutReducer from './layoutReducer';
 
 import {combineReducers} from 'redux';
 
-const Reducers = combineReducers({
-    menuOpen: toggleReducer,
+export default combineReducers({
+    layout: layoutReducer,
     
-})
+});
 
-export default Reducers;

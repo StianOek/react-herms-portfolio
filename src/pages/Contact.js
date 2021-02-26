@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import styled from 'styled-components';
 
 //Animation
@@ -7,17 +7,22 @@ import {pageAnimation, titleAnimation, LineAnimation} from '../Animation';
 import Axios from 'axios';
 
 
-class Contact extends Component  {
+import {connect} from 'react-redux';
+import { setLanguage } from "../actions/language";
+
+class Contact extends React.Component  {
+
+   
 
     
 
-   state = {
-        name: '',
-        email: '',
-        message: '',
-        disabled: false,
-        emailSent: null
-   }
+    state = {
+            name: '',
+            email: '',
+            message: '',
+            disabled: false,
+            emailSent: null
+    }
 
 
    handleChange = (event) => {
@@ -39,8 +44,8 @@ class Contact extends Component  {
            disabled: true
            
        })
-
-       Axios.post('http://localhost:3030/api/email', this.state)
+       // https://93.188.167.42:8090/api/email <--- replace
+       Axios.post('https://localhost:3030/api/email', this.state)
         .then(res => {
             if(res.data.success) {
                 console.log(res)
@@ -67,13 +72,20 @@ class Contact extends Component  {
    }
     
 render() {
+    const language = this.props.language;
     return (
 
         <ContatcStyle exit="exit" variants={pageAnimation} animate="show" initial="hidden" >
             
             <Title>
                 <Hide>
-                    <motion.h2 variants={titleAnimation}>Let's <span>Talk</span></motion.h2>
+                    <motion.h2 
+                        variants={titleAnimation}>
+                            {language === "no" ? "La oss ta en " : "Let's "} 
+                        <span>
+                            {language === "no" ? "prat " : "Talk "}
+                        </span>
+                    </motion.h2>
                     <motion.div variants={LineAnimation} className="line"></motion.div>
                 </Hide>
             </Title>
@@ -88,7 +100,7 @@ render() {
                                name="name" 
                                onChange={this.handleChange} 
                                value={this.state.name} 
-                               placeholder="Enter name" 
+                               placeholder={language === "no" ? "Skriv inn navn" : "Enter name"} 
                                className="name-input" 
                                required 
                         />
@@ -101,7 +113,7 @@ render() {
                                name="email" 
                                onChange={this.handleChange} 
                                value={this.state.email} 
-                               placeholder="Enter Email" 
+                               placeholder={language === "no" ? "Skriv inn e-post" : "Enter email"} 
                                className="email-input" 
                                required 
                         />
@@ -115,19 +127,21 @@ render() {
                                   row="20" 
                                   onChange={this.handleChange} 
                                   value={this.state.message} 
-                                  placeholder="Your message" 
+                                  placeholder={language === "no" ? "Din beskjed" : "Your message"} 
                                   className="text-input" 
                                   required
                         />
 
                     </InputWrapper>
-
-                    <Note>Note: Contact page is under develping. Please, if you do send a message leave a name and a reachable email. Thanks for understanding</Note>
+                    
+                    <Note>
+                        {language === "no" ? "Merk: Kontakt siden er under utvikling. Vennligst, hvis du sender en melding, legg igjen et navn og en e-post som kan nås. Takk for forståelsen" : "Note: Contact page is under develping. Please, if you do send a message leave a name and a reachable email. Thanks for understanding"}
+                    </Note>
 
                     <InputWrapper className="input">
 
                         <InputBtn type="submit" 
-                                  value="Send message" 
+                                  value={language === "no" ? "Send beskjed" : "Send message"} 
                                   disabled={this.state.disabled} 
                                   className="btn" 
                         />
@@ -151,6 +165,14 @@ render() {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+	return {
+		language: state.layout.language,
+	};
+};
+export default connect(mapStateToProps, { setLanguage })(Contact);
+
 
 const Note = styled.h6`
 
@@ -201,7 +223,7 @@ const ContatcStyle = styled(motion.div)`
     align-items: center;
 
     h2{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
 
@@ -209,7 +231,7 @@ const ContatcStyle = styled(motion.div)`
     @media (max-width: 1300px) {
             
             padding: 2rem 2rem;
-            font-size: 1rem
+            font-size: 0.5rem
         }
 `;
 
@@ -298,4 +320,3 @@ const Form = styled.form`
 
 
 
-export default Contact;

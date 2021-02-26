@@ -6,12 +6,10 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
 // Import all reducers
-import Reducers from '../src/reducers/index';
+import store from './store';
 
-// Redux STORE 
-import {createStore} from 'redux';
 
-const store = createStore(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+//const store = createStore(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 

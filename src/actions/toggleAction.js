@@ -1,6 +1,6 @@
-import {TOGGLED} from './types';
+import { TOGGLED } from './types';
 
-export const toggle = (menuOpen) => {
+export const toggleMenu = (menuOpen) => {
     return {
         type: TOGGLED,
         payload: !menuOpen,

@@ -6,7 +6,7 @@ import {motion} from 'framer-motion';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5rem 10rem;
+    padding: 1rem 10rem;
     color: white;
     
     @media (max-width: 1300px) {
@@ -43,13 +43,15 @@ export const Image = styled(motion.div)`
     flex: 1;
     overflow: hidden;
     z-index: 2;
-    transform: rotate(45deg), scale(0,4);
-    
+    transform: rotate(45deg), scale(0,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 
     img {
-        width: 100%;
-        height: 60vh;
+        width: 60%;
+        height: 60%;
         object-fit: cover;
         
         
@@ -59,8 +61,8 @@ export const Image = styled(motion.div)`
 
     @media (max-width: 1300px) {
         img {
-            width: 80%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
             object-fit: cover;
             margin-top: 4rem;
             border-radius: 20px;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect }from 'react'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {useLocation} from 'react-router-dom';
@@ -7,50 +7,72 @@ import Side from '../Sidebar/Side';
 
 
 import {useSelector, useDispatch} from 'react-redux';
-import { toggle } from '../../actions/toggleAction';
+import { toggleMenu } from '../../actions/toggleAction';
+import { setLanguage } from '../../actions/language';
 
-
+import nor from '../../img/no.svg';
+import eng from '../../img/en.svg';
 
 
 const Nav = () => {
-    // Redux
 
-    const menuOpen = useSelector(state => state.menuOpen);
+    
+    
+    
+    const {pathname} = useLocation();
+    
+    // Redux
+    const language = useSelector(state => state.layout.language);
+    const menuOpen = useSelector(state => state.layout.menuOpen);
     const dispatch = useDispatch();
 
-    // Hooks
     
-    //const [click, setClick] = useState(false);
-    //const handleClick = () => setClick(!click);
-
-    
-
-    const {pathname} = useLocation();
+   
+   console.log(language)
 
     return(
         <>
-        
         <Navbar>
         
-        
-       
             <h1><Link to="/">Herms</Link></h1>
-            <MenuLabel onClick={() => dispatch(toggle())} >
+            
+            <Flags className="desktop">
+					<Lang
+						src={nor}
+						alt="Norwegian"
+						active={language === "no"}
+						onClick={() => dispatch(setLanguage({ language: "no" }))}
+					/>
+					<Lang
+						active={language === "en"}
+						alt="English"
+						src={eng}
+						onClick={() => dispatch(setLanguage({ language: "en" }))}
+					/>
+			</Flags> 
+
+            <MenuLabel onClick={() => dispatch(toggleMenu(menuOpen))} >
                 <Icon clicked={menuOpen}></Icon>
             </MenuLabel>
             <Side clicked={menuOpen}/>
             <ul>
                 <li>
-                    <Link to="/"><span>.</span> About</Link>
+                    <Link to="/"><span>.</span>
+                    {language === "no" ? "Om" : "About"}
+                    </Link>
                     <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/' ? "23%" : "0%"}}/>
                     
                 </li>
                 <li>
-                    <Link to="/work"><span>.</span> Work</Link>
+                    <Link to="/work"><span>.</span> 
+                    {language === "no" ? "Jobb" : "Work"}
+                    </Link>
                     <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/work' ? "20%" : "0%"}}/>
                 </li>
                 <li>
-                    <Link to="/contact"><span>.</span> Contact</Link>
+                    <Link to="/contact"><span>.</span>
+                    {language === "no" ? "Kontakt" : "Contact"}
+                    </Link>
                     <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/contact' ? "27%" : "0%"}}/>
                 </li>
             </ul>
@@ -63,6 +85,30 @@ const Nav = () => {
 
     )
 };
+
+export const Flags = styled.div`
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin-left: 60px;
+	@media (max-width: 1300px) {
+		display: none;
+	}
+	
+`;
+export const Lang = styled.img`
+	width: 22px;
+	margin-left: 20px;
+	cursor: pointer;
+	top: -3px;
+	opacity: ${(props) => (props.active ? 1 : 0.5)};
+	border-bottom: ${(props) => (props.active ? "1px solid" : "none")};
+
+	&:first-child {
+		margin-left: 0px;
+	}
+    @media (max-width: 1300px) {
+		display: none;
+	}
+`;
 
 const Navbar = styled.nav`
 
@@ -174,7 +220,7 @@ const MenuLabel = styled.div`
 
 const Icon = styled.span`
   position: relative;
-  background-color:${(menuOpen) => (menuOpen.clicked ? "transparent" : "#23d997")} ;
+  background-color:${(props) => (props.clicked ? "transparent" : "#23d997")} ;
   width: 2rem;
   height: 2px;
   right: 1px;
@@ -219,3 +265,4 @@ const Icon = styled.span`
 
 
 export default Nav;
+

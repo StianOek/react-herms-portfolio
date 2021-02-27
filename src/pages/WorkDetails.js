@@ -11,7 +11,7 @@ import {pageAnimation} from '../Animation';
 
 
 
-const Detail = ({jobTitle}) => {
+const Detail = () => {
 
     const history = useHistory();
     const url = history.location.pathname;
@@ -24,17 +24,9 @@ const Detail = ({jobTitle}) => {
         if(currentWork) {
             setWork([currentWork]);
         }
-        if(jobTitle) {
-          const works = WorkState.filter((item) => jobTitle === item.jobTitle)
-          setWork(works);
-          console.log(works)
-        }
-        if(jobTitle ===  work) {
-           
-        }
         
       }, [WorkState, url,]);
-      console.log(work)
+      
       
 
     return (

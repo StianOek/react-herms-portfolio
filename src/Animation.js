@@ -63,6 +63,7 @@ export const fade = {
         transition: {
             ease: "easeOut",
             duration: 2,
+            bottom: 4,
         }
     },
 };

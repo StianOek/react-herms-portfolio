@@ -30,10 +30,13 @@ const Work = () => {
         
     }
 
-
-    console.log(selectedWork)
     return (
-        <Container exit="exit" variants={pageAnimation} animate="show" initial="hidden">
+        <Container 
+            exit="exit" 
+            variants={pageAnimation} 
+            animate="show" 
+            initial="hidden"
+        >
             <AllBtnWrapper>
                 <BtnWrapper>
                     
@@ -99,7 +102,7 @@ const Work = () => {
                         }}
                     >
                         <FontAwesomeIcon icon={faRedo} size="xs" transform={{ rotate: 2 }} swapOpacity className="icon"/>
-                        {language === "no" ? "Forfriske" : "Refresh"}
+                        {language === "no" ? "Nullstill" : "Reset"}
                     </ClearBtn>
                 </ClearBtnWrapper>
             </AllBtnWrapper> 
@@ -195,11 +198,12 @@ const ClearBtn = styled(motion.button)`
     background: none;
     outline: none;
     color: #212121;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease-in-out;
     font-family: 'Roboto Mono', monospace;
+   
     &:hover { 
         color: #23d997;
-        bottom: 2px;
+        bottom: 1px;
         
     }
 

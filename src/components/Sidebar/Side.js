@@ -1,17 +1,16 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {motion} from 'framer-motion';
-import {useLocation} from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 import {useSelector, useDispatch} from 'react-redux';
-
-
+import { setLanguage } from '../../actions/language';
 
 import nor from '../../img/no.svg';
 import eng from '../../img/en.svg';
 
-import { setLanguage } from '../../actions/language';
+
 
 const Side = () => {
     const language = useSelector(state => state.layout.language);
@@ -22,35 +21,68 @@ const Side = () => {
     const dispatch = useDispatch();
 
     return(
-        <SideContainer clicked={menuOpen} onClick={() => dispatch({type: 'TOGGLED'})} >
+        <SideContainer 
+            clicked={menuOpen} 
+            onClick={() => dispatch({type: 'TOGGLED'})} 
+        >
             <SidebarWrapper>
                 <li>
-                    <Link to="/">{language === "no" ? "Om" : "About"}<span>.</span></Link>
-                    <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/' ? "30%" : "0%"}}/>
+                    <Link 
+                        to="/">
+                        {language === "no" ? "Om" : "About"}
+                        <span>
+                            .
+                        </span>
+                    </Link>
+                    <UnderLine 
+                        transition={{duration: 0.75}} 
+                        initial={{width: "0%"}} 
+                        animate={{width: pathname === '/' ? "30%" : "0%"}}
+                    />
                 </li>
                 <li>
-                    <Link to="/work">{language === "no" ? "Jobb" : "Work"}<span>.</span></Link>
-                    <UnderLine transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/work' ? "30%" : "0%"}}/>
+                    <Link 
+                        to="/work">
+                        {language === "no" ? "Jobb" : "Work"}
+                        <span>
+                            .
+                        </span>
+                    </Link>
+                    <UnderLine 
+                        transition={{duration: 0.75}} 
+                        initial={{width: "0%"}} 
+                        animate={{width: pathname === '/work' ? "30%" : "0%"}}
+                    />
                 </li>
                 <li>
-                    <Link to="/contact">{language === "no" ? "Kontakt" : "Contact"}<span>.</span></Link>
-                    <UnderLineTwo transition={{duration: 0.75}} initial={{width: "0%"}} animate={{width: pathname === '/contact' ? "55%" : "0%"}}/>
+                    <Link 
+                        to="/contact">
+                        {language === "no" ? "Kontakt" : "Contact"}
+                        <span>
+                            .
+                        </span>
+                    </Link>
+                    <UnderLineTwo 
+                        transition={{duration: 0.75}} 
+                        initial={{width: "0%"}} 
+                        animate={{width: pathname === '/contact' ? "55%" : "0%"}}
+                    />
                 </li>
 
-            <Flags className="desktop">
-				<Lang
-					src={nor}
-					alt="Norwegian"
-					active={language === "no"}
-					onClick={() => dispatch(setLanguage({ language: "no" }))}
-				/>
-				<Lang
-					active={language === "en"}
-					alt="English"
-					src={eng}
-					onClick={() => dispatch(setLanguage({ language: "en" }))}
-				/>
-			</Flags> 
+                <Flags className="desktop">
+                    <Lang
+                        src={nor}
+                        alt="Norwegian"
+                        active={language === "no"}
+                        onClick={() => dispatch(setLanguage({ language: "no" }))}
+                    />
+                    <Lang
+                        active={language === "en"}
+                        alt="English"
+                        src={eng}
+                        onClick={() => dispatch(setLanguage({ language: "en" }))}
+                    />
+                </Flags> 
 
             </SidebarWrapper>
         </SideContainer>

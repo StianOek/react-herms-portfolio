@@ -72,5 +72,5 @@ export const Image = styled(motion.div)`
 `
 
 export const Hide = styled.div`
-overflow: hidden;
+    overflow: hidden;
 `

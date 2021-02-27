@@ -23,28 +23,25 @@ const AboutSection = () => {
     return(
         
         <About>
-            
             <Description>
                 <motion.div  className="title">
                     <Hide>
                         <motion.h2
-
                             className="title_one" 
                             variants={titleAnimation}>
                             {language === "no" ? "navnet er " : "name is "}
-                            <span>Stian Herms</span>
-
+                            <span>
+                                Stian Herms
+                            </span>
                          </motion.h2>
 
                     </Hide>
 
                     <Hide>
                         <motion.h2 
-
                             variants={titleAnimation}>
                             <span>Front-End</span> 
                             {language === "no" ? " utvikler" : " developer"}
-
                          </motion.h2>
                     </Hide>
 
@@ -53,14 +50,26 @@ const AboutSection = () => {
                         <motion.h2 
                             className="title_three" 
                             variants={titleAnimation}>
-                                {language === "no" ? "med " : "with "}
-                                <span>UI/UX</span>
-                                {language === "no" ? " i tankene" : " in mind"}
+                            {language === "no" ? "med " : "with "}
+                            <span>
+                                 UI/UX
+                            </span>
+                            {language === "no" ? " i tankene" : " in mind"}
                         </motion.h2>
 
                     </Hide>
-                    <motion.p variants={fade}>{language === "no" ? "Kontakt meg for eventuelle nettrelaterte eller designideer du måtte ha. Med mitt samarbeid kan vi gjøre ideene dine til gode nettløsninger" : "Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile."}</motion.p>
-                    <ContactLink variants={fade} to="/contact"> {language === "no" ? "Kontakt meg" : "Contact me"}</ContactLink>
+
+                    <motion.p 
+                        variants={fade}>
+                        {language === "no" ? "Kontakt meg for eventuelle nettrelaterte eller designideer du måtte ha. Med mitt samarbeid kan vi gjøre ideene dine til gode nettløsninger" : "Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile."}
+                    </motion.p>
+
+                    <ContactLink 
+                        variants={fade} 
+                        to="/contact"> 
+                        {language === "no" ? "Kontakt meg" : "Contact me"}
+                    </ContactLink>
+
                 </motion.div>
             </Description>
 
@@ -68,9 +77,13 @@ const AboutSection = () => {
                    whileTap={{
                    scale: 0.5,
                    rotate: 360,
-                   
-                                       }} >
-                <motion.img variants={photoAnimation} src={myself} alt="Image of myself taking picture" />
+                   }}>
+                
+                <motion.img 
+                    variants={photoAnimation} 
+                    src={myself} 
+                    alt="Image of myself taking picture" 
+                />
             </Image>
 
         

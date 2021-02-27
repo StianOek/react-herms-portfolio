@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import AboutMe from './pages/AboutMe'
 import GlobalStyle from './components/GlobalStyle'
 import Nav from './components/Navbar/Nav';
@@ -13,8 +13,8 @@ import {AnimatePresence} from 'framer-motion';
 
 function App() {
 
-const location = useLocation();
-console.log(location)
+  const location = useLocation();
+
 
 
 
@@ -22,8 +22,8 @@ console.log(location)
 
   return (
     <div className="App">
+
       <GlobalStyle />
-      
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>

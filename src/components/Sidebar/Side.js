@@ -23,50 +23,47 @@ const Side = () => {
     return(
         <SideContainer 
             clicked={menuOpen} 
-            onClick={() => dispatch({type: 'TOGGLED'})} 
-        >
+            onClick={() => dispatch({type: 'TOGGLED'})} >
             <SidebarWrapper>
-                <li>
+                <li style={{listStyle: "none"}}>
                     <Link 
                         to="/">
-                        {language === "no" ? "Om" : "About"}
+                        {language === "no" ? "Biografi" : "Biography"}
                         <span>
-                            .
+                           
                         </span>
                     </Link>
-                    <UnderLine 
-                        transition={{duration: 0.75}} 
-                        initial={{width: "0%"}} 
-                        animate={{width: pathname === '/' ? "30%" : "0%"}}
-                    />
+                    
                 </li>
-                <li>
+                <li style={{listStyle: "none"}}>
                     <Link 
                         to="/work">
-                        {language === "no" ? "Jobb" : "Work"}
+                        {language === "no" ? "Web utvikling" : "Web development"}
                         <span>
-                            .
+                           
                         </span>
                     </Link>
-                    <UnderLine 
-                        transition={{duration: 0.75}} 
-                        initial={{width: "0%"}} 
-                        animate={{width: pathname === '/work' ? "30%" : "0%"}}
-                    />
+                    
                 </li>
-                <li>
+                <li style={{listStyle: "none"}}>
+                    <Link 
+                        to="/network">
+                        {language === "no" ? "Nettverk" : "Network"}
+                        <span>
+                           
+                        </span>
+                    </Link>
+                   
+                </li>
+                <li style={{listStyle: "none"}}>
                     <Link 
                         to="/contact">
                         {language === "no" ? "Kontakt" : "Contact"}
                         <span>
-                            .
+                           
                         </span>
                     </Link>
-                    <UnderLineTwo 
-                        transition={{duration: 0.75}} 
-                        initial={{width: "0%"}} 
-                        animate={{width: pathname === '/contact' ? "55%" : "0%"}}
-                    />
+                    
                 </li>
 
                 <Flags className="desktop">
@@ -98,6 +95,7 @@ const Flags = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 
 	
 `;
@@ -117,17 +115,18 @@ const Lang = styled.img`
 
 const SideContainer = styled.aside`
     position: fixed;
-    z-index: 599;
-    width: 200px;
-    height: 100vh;
-    background: #fff;
+    z-index: -2222;
+    width: 50%;
+    height: 90vh;
+    margin: 10vh 0;
+    background: #222222;
     display: grid;
     align-items: center;
     top: 0;
-    right: ${(props) => (props.clicked ? "0" : "-200px")};
+    right: ${(props) => (props.clicked ? "0" : "-50%")};
     transition: 0.3s ease-in-out;
     opacity: 1;
-    border-left: 1px solid #23d997;
+   
 
     @media (min-width: 1300px) {
         display: none;
@@ -140,16 +139,22 @@ const SideContainer = styled.aside`
         align-items: center;
         justify-content: center;
         font-size: 1.3rem;
-        font-family: 'Roboto Mono', sans-serif;
         text-decoration: none;
         list-style-type: none;
         transition: 0.1s ease-in-out;
-        color: #212121;
+        color: #757575;
         cursor: pointer;
 
         &:hover {
             color: #23d997;
         }
+    }
+
+    li {
+        text-align: start;
+        width: 100%;
+        border-top: #212121 solid 1px;
+        border-bottom: #363636 solid 1px;
     }
 
 
@@ -161,28 +166,8 @@ const SidebarWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    
 `;
 
-
-const UnderLine = styled(motion.div)`
-position: relative;
-height: 0.05rem;
-background: #29d997;
-width: 0%;
-position: absolute;
-top: 75%;
-left: 67%;
-transform: translate(-100%, -50%);
-`;
-
-const UnderLineTwo = styled(motion.div)`
-position: relative;
-height: 0.05rem;
-background: #29d997;
-width: 0%;
-position: absolute;
-top: 75%;
-left: 71%;
-transform: translate(-100%, -50%);
-`;
 

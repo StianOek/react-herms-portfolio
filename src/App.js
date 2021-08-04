@@ -9,6 +9,8 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 
 //Animation
 import {AnimatePresence} from 'framer-motion';
+import { Network } from './pages/Network';
+
 
 
 function App() {
@@ -39,7 +41,11 @@ function App() {
             <Detail/>
           </Route>
 
-          <Route exact path="/contact">
+          <Route path="/network">
+            <Network />
+          </Route>
+
+          <Route path="/contact">
               <Contact />
           </Route>
 

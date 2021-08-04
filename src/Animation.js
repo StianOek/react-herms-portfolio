@@ -102,6 +102,7 @@ export const slider = {
         x: "-130%",
         skew: "45deg",
     },
+    
 
     show: {
         x: "100%",

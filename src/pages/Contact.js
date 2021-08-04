@@ -45,7 +45,7 @@ class Contact extends React.Component  {
            
        })
        // https://93.188.167.42:8090/api/email <--- replace
-       Axios.post('https://localhost:3030/api/email', this.state)
+       Axios.post('https://93.188.167.42:8090/api/email', this.state)
         .then(res => {
             if(res.data.success) {
                 console.log(res)

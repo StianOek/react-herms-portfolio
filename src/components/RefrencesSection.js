@@ -21,10 +21,7 @@ const RefrencesSection = () => {
     return (
         <Ref variants={scrollReveal} animate={controls} ref={element}>
             <h2>
-                <span>
-                    Re
-                </span>
-                    {language === "no" ? "feranser" : "frences"}
+                    {language === "no" ? "Referanser" : "Refrences"}
             </h2>
 
             <AnimateSharedLayout>
@@ -55,6 +52,7 @@ const RefrencesSection = () => {
 };
 
 const Ref = styled(About)`
+    margin-top: 10rem;
     display: block;
 
     span {
@@ -63,7 +61,7 @@ const Ref = styled(About)`
 
     h2 {
         padding-bottom: 2rem;
-        font-weight: lighter;
+        
     }
 
     .line {

@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import  WorkState from "../workState";
 import vid from '../Video/typing.mp4';
 
+import zeiptTime from '../img/zeiptTime-mittstilt-02.svg';
+import zeiptValue from '../img/zeiptValue-mittstilt-01.svg';
+import zeiptPlace from '../img/zeiptPlace-mittstilt-01.svg';
+
 //Animation
 import {motion} from 'framer-motion';
 import {pageAnimation} from '../Animation';
@@ -16,7 +20,7 @@ const Detail = () => {
     const history = useHistory();
     const url = history.location.pathname;
     const [work, setWork] = useState([]);
-    
+    console.log(url)
 
     //UseEffect
     useEffect(() => {
@@ -35,6 +39,7 @@ const Detail = () => {
                 <Headline>
                 <h2>{item.title}</h2>
                 <h3>{item.jobTitle}</h3>
+              
                     <Imgwrap>
                         <img src={item.mainImg} alt="main img" />
                         <img src={item.pic} alt="main img" />
@@ -44,9 +49,12 @@ const Detail = () => {
                         {item.desc.map((info) => (
                             <Info 
                             title={info.title}
-                            description={info.description}
+                            desc={info.desc}
+                            descTwo={info.descTwo}
+                            link={info.link}
                             tools={info.tools}
                             key={info.title} />
+                            
                         ))}
                     </Desc>
                     
@@ -62,6 +70,46 @@ const Detail = () => {
     )
     
 };
+
+const Info = ({title, desc, descTwo, link,  tools}) => {
+    return(
+        <InfoStyle>
+            <h3>{title}</h3>
+            <div className="line"></div>
+            <h4>Tools ive used :</h4>
+            <p>{tools}</p>
+            <DescWrapper>
+                <DescDiv>
+                    <p>{desc}</p>
+                </DescDiv>
+                <DescDivDiv>
+                    <p>{descTwo}</p>
+                    <Zeiptlink href={link}>Zeipt.com</Zeiptlink>
+                </DescDivDiv>
+            </DescWrapper>
+         
+            
+            
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <IllustratedImg src={zeiptPlace} alt="main img" />
+                    <IllustratedImg src={zeiptTime} alt="main img" />
+                    <IllustratedImg src={zeiptValue} alt="main img" />
+                </div>
+            
+          
+            
+            
+        </InfoStyle>
+    )
+}
+
+
+export default Detail;
+
+const IllustratedImg = styled.img`
+width: 100vh !important;
+height: 100vh !important; 
+`;
 
 const Container = styled(motion.div)`
 color: #212121;
@@ -86,6 +134,7 @@ img {
     height: 30vh;
     object-fit: cover;
     margin: 10px;
+    border-radius: 10px;
 }
 
 @media (max-width: 1300px) {
@@ -151,8 +200,8 @@ h3{
 }
 
 p{
-    letter-spacing: 0.2rem;
-    font-size: 1.2rem;
+   
+    font-size: 1rem;
     @media (max-width: 1300px) {
         font-size: 1rem;
         
@@ -173,20 +222,42 @@ video {
     }
 `;
 
+const DescWrapper = styled.div`
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-between;
 
-const Info = ({title, description, tools}) => {
-    return(
-        <InfoStyle>
-            <h3>{title}</h3>
-            <div className="line"></div>
-            <p>{description}</p>
-            <p>{tools}</p>
-            <video src={vid} autoPlay="on" loop="on" muted="on" />
-            
-            
-        </InfoStyle>
-    )
-}
+    @media (max-width: 768px) {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+`;
+
+const DescDiv = styled.div`
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+  
+`;
+
+const DescDivDiv = styled.div`
+    width: 550px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+  
+   
+`;
+
+const Zeiptlink = styled.a`
+    font-size: 2rem;
+    color: #333;
+    text-decoration: none;
+    
+`;
 
 
-export default Detail;
+

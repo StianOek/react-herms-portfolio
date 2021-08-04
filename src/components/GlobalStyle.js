@@ -17,24 +17,16 @@ html {
 
 body {
     background: white;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow-X: hidden;
 }
 
-
-.title_one{
-    font-size: 2.5rem;
-}
-.title_three {
-    font-size: 2rem;
-}
-
 h2 {
-    font-weight: lighter;
-    font-size: 2rem;
-    letter-spacing: .6rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: .3rem;
     color: #212121;
-    line-height: 4rem;
+    line-height: 2rem;
     text-transform: uppercase;
 }
 
@@ -45,23 +37,25 @@ h3 {
 h4 {
     font-weight: bold;
     color: #212121;
-    font-size: 1.4rem;
+    font-size: 1rem;
     letter-spacing: 0.2rem;
 }
 
 a {
     font-size: 1rem;
+    font-weight: 300;
 }
 span { 
-    font-weight: bold;
+    font-weight: 500;
     color: #23d997; 
 }
 
 p {
-    padding: 3rem 0rem;
+    padding: 2rem 0rem;
     color: #212121;
-    font-size: 1.4rem;
-    line-height: 150%;
+    font-size: 1rem;
+    font-weight: 300;
+    
 }
 
 .ref_p {

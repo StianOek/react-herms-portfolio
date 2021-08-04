@@ -19,12 +19,11 @@ import {motion} from 'framer-motion';
 `;
 
 export const Description  = styled.div`
-    flex: 1;
+    flex: 2;
     padding-right: 10rem;
     z-index: 2;
-
-    h2 {
-        font-weight: lighter;
+    p {
+        border-top: 1px solid black;
     }
 
     @media (max-width: 1300px) {
@@ -32,8 +31,10 @@ export const Description  = styled.div`
         button {
             margin: 2rem 0rem 5rem 0rem;
             font-size: 1rem;
+            font-weight: 300;
             outline: none;
         }
+        
     }
 
 
@@ -47,18 +48,14 @@ export const Image = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: center;
-
-
     img {
-        width: 60%;
-        height: 60%;
+        width: 50%;
+        height: 50%;
         object-fit: cover;
         
         
         
     }
-
-
     @media (max-width: 1300px) {
         img {
             width: 50%;
@@ -73,4 +70,10 @@ export const Image = styled(motion.div)`
 
 export const Hide = styled.div`
     overflow: hidden;
+    h1 {
+        color: #E94996;
+        font-size: 40px;
+        margin-bottom: 2rem;
+
+    }
 `

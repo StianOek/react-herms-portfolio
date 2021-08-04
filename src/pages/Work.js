@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import  WorkState, {WEBDEVELOPER, CONSULTANT, FRONTEND, BACKEND}  from "../workState";
+import  WorkState, {WEBDEVELOPER, CONSULTANT, FRONTEND, BACKEND, UXDEVELOPER}  from "../workState";
 
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -87,6 +87,18 @@ const Work = () => {
                         }}
                     >
                         Front-End
+                    </Btn>
+                    <Btn 
+                        active={selectedWork === ALL || selectedWork === UXDEVELOPER}
+                        variants={fade}
+                        animate="show"
+                        initial="hidden"
+                        type="button" 
+                        onClick={() => {
+                            handleSelectedWork(UXDEVELOPER)
+                        }}
+                    >
+                        UX-Developer
                     </Btn>
         
                 </BtnWrapper>       

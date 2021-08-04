@@ -6,7 +6,7 @@ import {
 
 const initialState = {
 	menuOpen: false,
-	language: "en",
+	language: "no",
 
 };
 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Side from '../Sidebar/Side';
-
+import herms from '../../img/hermslogo.svg';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleMenu } from '../../actions/toggleAction';
@@ -35,9 +35,49 @@ const Nav = () => {
             <Navbar>
             
                 <h1>
-                    <Link to="/">Herms</Link>
+                    <Link to="/">
+                        <h1>H</h1>
+                    </Link>
                 </h1>
                 
+
+                <MenuLabel onClick={() => dispatch(toggleMenu(menuOpen))} >
+                    <Icon 
+                        clicked={menuOpen}>
+                    </Icon>
+                </MenuLabel>
+                <Side clicked={menuOpen}/>
+                <ul>
+                    <li>
+                        <Link 
+                            to="/">
+                            {language === "no" ? "Biografi" : "Biography"}
+                        </Link>
+                        
+                        
+                    </li>
+                    <li>
+                        <Link 
+                            to="/work">
+                            {language === "no" ? "Web utvikling" : "Web development"}
+                        </Link>
+                        
+                    </li>
+                    <li>
+                        <Link 
+                            to="/network">
+                            {language === "no" ? "Nettverk" : "Network"}
+                        </Link>
+                        
+                    </li>
+                    <li>
+                        <Link 
+                            to="/contact">
+                            {language === "no" ? "Kontakt" : "Contact"}
+                        </Link>
+                        
+                    </li>
+                </ul>
                 <Flags className="desktop">
                     <Lang
                         src={nor}
@@ -52,58 +92,6 @@ const Nav = () => {
                         onClick={() => dispatch(setLanguage({ language: "en" }))}
                     />
                 </Flags> 
-
-                <MenuLabel onClick={() => dispatch(toggleMenu(menuOpen))} >
-                    <Icon 
-                        clicked={menuOpen}>
-                    </Icon>
-                </MenuLabel>
-                <Side clicked={menuOpen}/>
-                <ul>
-                    <li>
-                        <Link 
-                            to="/">
-                            <span>
-                                .
-                            </span>
-                            {language === "no" ? "Om" : "About"}
-                        </Link>
-                        <UnderLine 
-                            transition={{duration: 0.75}} 
-                            initial={{width: "0%"}} 
-                            animate={{width: pathname === '/' ? "23%" : "0%"}}
-                        />
-                        
-                    </li>
-                    <li>
-                        <Link 
-                            to="/work">
-                            <span>
-                                .
-                            </span> 
-                            {language === "no" ? "Jobb" : "Work"}
-                        </Link>
-                        <UnderLine 
-                            transition={{duration: 0.75}} 
-                            initial={{width: "0%"}}
-                            animate={{width: pathname === '/work' ? "20%" : "0%"}}
-                        />
-                    </li>
-                    <li>
-                        <Link 
-                            to="/contact">
-                            <span>
-                                .
-                            </span>
-                            {language === "no" ? "Kontakt" : "Contact"}
-                        </Link>
-                        <UnderLine 
-                            transition={{duration: 0.75}} 
-                            initial={{width: "0%"}} 
-                            animate={{width: pathname === '/contact' ? "27%" : "0%"}}
-                        />
-                    </li>
-                </ul>
             </Navbar>
         </>
     )
@@ -140,39 +128,50 @@ const Navbar = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 10rem;
-    border-bottom: 1px solid #23d991;
-    background: white;
+    background: #010101;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 99999;
 
     a {
-        color: #212121;
+        color: #fff;
         text-decoration: none;
+        font-weight: 300;
         @media (max-width: 1300px){
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin-left: 2rem;
         }
+        &:hover {
+            color: #ececec;
+            top: -2px;
+        }
     }
+
+   
     ul {
         display: flex;
         align-items: center;
+        justify-content: space-around;
         list-style: none;
         text-align: center;
         @media (max-width: 1300px) {
             display: none;
+            list-style: none;
         }
     }
 
     li {
-        padding-left: 10rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
         position: relative;
     }
 
-    #logo {
-        font-size: 1.2rem;
-        font-family: 'Roboto Mono', monospace;
-        font-weight: lighter;
+    h1 {
+        transition: all 0.1s ease-in-out;
+    }
+
+    h1:hover {
+        transform: rotate(45deg)
     }
 
     @media (max-width: 1300px) {
@@ -245,7 +244,7 @@ const Icon = styled.span`
         display: inline-block;
         position: absolute;
         left: 0;
-        background-color: #212121;
+        background-color: #fff;
         transition: all 0.3s;
         
     }
@@ -263,6 +262,11 @@ const Icon = styled.span`
     ${MenuLabel}:hover &::after {
         top: ${(props) => (props.clicked ? "0" : "1rem")};
     }
+`;
+
+
+const Logo = styled.img`
+    width: 30%;
 `;
 export default Nav;
 

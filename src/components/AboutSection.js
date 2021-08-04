@@ -26,42 +26,30 @@ const AboutSection = () => {
             <Description>
                 <motion.div  className="title">
                     <Hide>
-                        <motion.h2
+                        <motion.h1
                             className="title_one" 
                             variants={titleAnimation}>
-                            {language === "no" ? "navnet er " : "name is "}
-                            <span>
-                                Stian Herms
-                            </span>
-                         </motion.h2>
-
+                            {language === "no" ? "@import " : "@import "}
+                            <br />
+                            <div style={{fontWeight: "300", color: "#515151"}}>
+                                &lt;
+                                    <span>
+                                        CODER 
+                                    </span>
+                                /&gt;
+                            </div>
+                            <div style={{fontWeight: "300", color: "#515151"}}>
+                                &lt;
+                                    <span>
+                                        DESIGNER 
+                                    </span>
+                                /&gt;
+                            </div>
+                         </motion.h1>
                     </Hide>
-
-                    <Hide>
-                        <motion.h2 
-                            variants={titleAnimation}>
-                            <span>Front-End</span> 
-                            {language === "no" ? " utvikler" : " developer"}
-                         </motion.h2>
-                    </Hide>
-
-                    <Hide>
-
-                        <motion.h2 
-                            className="title_three" 
-                            variants={titleAnimation}>
-                            {language === "no" ? "med " : "with "}
-                            <span>
-                                 UI/UX
-                            </span>
-                            {language === "no" ? " i tankene" : " in mind"}
-                        </motion.h2>
-
-                    </Hide>
-
                     <motion.p 
                         variants={fade}>
-                        {language === "no" ? "Kontakt meg for eventuelle nettrelaterte eller designideer du måtte ha. Med mitt samarbeid kan vi gjøre ideene dine til gode nettløsninger" : "Contact me for any web related or design ideas that you may have. I am driven to fetch your ideas from workdesk to desktop/mobile."}
+                        {language === "no" ? "Mitt navn er Stian Ihler - Jeg er en web utvikler og cyber sikkerhet entusiast som spesialiserer seg innen front-end og mobil utvikling i Oslo ved Høyskolen Kristiania. Jeg er en pappa, samboer og en fiskegal. Ser frem til å høre fra deg: Trykk på 'Kontakt meg' å legg igjen en beskjed!  " : "My name is Stian Ihler - I am a web developer and cyber security enthusiast who specializes in front-end and mobile development here in Oslo at Kristiania University College. I'm a dad, cohabitant and a fishmonger. Looking forward to hearing from you: Tap Contact me to leave a message"}
                     </motion.p>
 
                     <ContactLink 
@@ -82,7 +70,7 @@ const AboutSection = () => {
                 <motion.img 
                     variants={photoAnimation} 
                     src={myself} 
-                    alt="Image of myself taking picture" 
+                    alt="" 
                 />
             </Image>
 
@@ -135,21 +123,21 @@ const AboutSection = () => {
 // `
 
 const ContactLink = styled(Link)`
-font-weight: lighter;
-    font-size: 0.9rem;
+    font-weight: 400;
+    font-size: 12px;
     cursor: pointer;
-    padding: 0.7rem 2rem;
-    border: 1px solid #23d997;
-    border-radius: 50px;
-    background: transparent;
+    padding: 10px 20px;
+    background-color: #515151;
+    border-radius: 10px;
     outline: none;
-    color: #212121;
+    color: #fff;
     text-transform: uppercase;
     transition: all 0.5s ease;
     text-decoration: none;
     &:hover {
-        background-color: #23d997; 
-        color: white;
+        background-color: #717171; 
+        transform: scale(0.1);
+        
     }
 
     @media (max-width: 1300px) {

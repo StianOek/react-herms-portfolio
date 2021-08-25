@@ -73,7 +73,6 @@ const SkillSection = () => {
 
 const Skill = styled("div")`
     position: relative;
-    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +96,6 @@ position: relative;
 display: flex;
 flex-direction: column;
 margin: 10rem 0;
-z-index: -55;
     .title_div {
         display: flex;
         align-items: center;

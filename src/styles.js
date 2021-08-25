@@ -21,7 +21,6 @@ import {motion} from 'framer-motion';
 export const Description  = styled.div`
     flex: 2;
     padding-right: 10rem;
-    z-index: -1;
     p {
         border-top: 1px solid black;
     }

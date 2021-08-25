@@ -12,6 +12,9 @@ export default Button;
 const Wrapper = styled("button")`
 	z-index: -1;
 	line-height: 1.6;
+	background: #525252;
+	color: #fff;
+	font-family: 'poppins', sans-serif;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	/* INHERITED COLOR */
 	min-width: 100px;

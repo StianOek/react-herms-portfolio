@@ -78,38 +78,14 @@ const Info = ({title, desc, descTwo, link,  tools}) => {
             <div className="line"></div>
             <h4>Tools ive used :</h4>
             <p>{tools}</p>
-            <DescWrapper>
-                <DescDiv>
-                    <p>{desc}</p>
-                </DescDiv>
-                <DescDivDiv>
-                    <p>{descTwo}</p>
-                    <Zeiptlink href={link}>Zeipt.com</Zeiptlink>
-                </DescDivDiv>
-            </DescWrapper>
-         
             
-            
-                <div style={{display: "flex", flexDirection: "column"}}>
-                    <IllustratedImg src={zeiptPlace} alt="main img" />
-                    <IllustratedImg src={zeiptTime} alt="main img" />
-                    <IllustratedImg src={zeiptValue} alt="main img" />
-                </div>
-            
-          
-            
-            
+
         </InfoStyle>
     )
 }
 
 
 export default Detail;
-
-const IllustratedImg = styled.img`
-width: 100vh !important;
-height: 100vh !important; 
-`;
 
 const Container = styled(motion.div)`
 color: #212121;
@@ -163,101 +139,59 @@ img {
 
 `;
 const Imgwrap = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 
 `;
 
 const Desc = styled.div`
-min-height: 10vh;
-display: flex;
-margin: 5rem 10rem;
-align-items: center;
-justify-content: space-around;
+    min-height: 10vh;
+    display: flex;
+    margin: 5rem 10rem;
+    align-items: center;
+    justify-content: space-around;
 
-@media (max-width: 1300px) {
-    margin: 0;
-}
+    @media (max-width: 1300px) {
+        margin: 0;
+    }
 
 `;
 
 const InfoStyle = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 1rem;
-h3{
-    font-size: 2rem;
-}
-.line {
-    width: 50%;
-    background: #23d997;
-    height: 0.2rem;
-    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    h3{
+        font-size: 2rem;
+    }
+    .line {
+        width: 50%;
+        background: #23d997;
+        height: 0.2rem;
+        margin: 1rem 0rem;
 
-}
+    }
 
-p{
-   
-    font-size: 1rem;
-    @media (max-width: 1300px) {
+    p   {
+    
         font-size: 1rem;
+        @media (max-width: 1300px) {
+            font-size: 1rem;
+            
+        }
         
     }
-    
-}
-video {
-    width: 100%;
-    height: 20vh;
-    object-fit: cover;
-    
-    
-}
-@media (max-width: 1300px) {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-`;
 
-const DescWrapper = styled.div`
-    display: flex;
-    max-width: 1100px;
-    justify-content: space-between;
+    @media (max-width: 1300px) {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    `;
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        margin-bottom: 20px;
-    }
-`;
-
-const DescDiv = styled.div`
-    width: 550px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid grey;
-  
-`;
-
-const DescDivDiv = styled.div`
-    width: 550px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    border-bottom: 1px solid grey;
-  
-   
-`;
-
-const Zeiptlink = styled.a`
-    font-size: 2rem;
-    color: #333;
-    text-decoration: none;
-    
-`;
 
 
 

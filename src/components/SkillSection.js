@@ -1,16 +1,16 @@
 import React from 'react'
+import styled from 'styled-components';
 //icons
 import Code from '../img/code.svg';
 import Illustrator from '../img/illustrator.svg';
 import Server from '../img/vagueness.svg';
 
-import home2 from '../img/code6.jpg'
-import {About, Description, Image} from '../styles'
-import styled from 'styled-components';
-import {useScroll} from './useScroll';
-import {scrollReveal} from '../Animation';
 
+import {About, Description, Image} from '../styles'
+import {useScroll} from './useScroll';
 import {useSelector} from 'react-redux';
+
+import Button from './Button';
 
 
 
@@ -34,47 +34,46 @@ const SkillSection = () => {
                 <div>
                     <CardsTop>
                         <Card>
-                            <div style={{width: "380px"}}>
+                            <div>
                                 <h2>The code part</h2>
                                 <p>I like the idea of having controll over chaos. This is exactly what coding is in my opinion and i love it. I've come to understand html, css and javascript pretty well, and now im continuasly exploring new frameworks/librarys for those languages. </p>
+                                <Button>Read more</Button>
                             </div>
-                            <div style={{width: "150px", backgroundColor: "#ececec", borderRadius: "10px", margin: "20px"}}>
-                                <img style={{width: "90%", borderRadius: "10px"}} src={Code} alt="" />
+                            <div className="img">
+                                <img style={{width: "100%", borderRadius: "10px"}} src={Code} alt="" />
                             </div>
                             
                         </Card>
                         <Card>
-                            <div style={{width: "400px"}}>
+                            <div>
                                 <h2>The design part</h2>
                                 <p>I've always thought about design to express feelings, and it is. When you just sit down in front of your work station with a freshly made coffee and create ideas from top of your head is magical. </p>
+                                <Button>Read more</Button>
                             </div>
-                            <div style={{width: "150px", backgroundColor: "#ececec", borderRadius: "10px" , margin: "20px"}}>
-                                <img style={{width: "90%", borderRadius: "10px"}} src={Illustrator} alt="" />
+                            <div className="img">
+                                <img style={{width: "100%", borderRadius: "10px"}} src={Illustrator} alt="" />
                             </div>
                         </Card>
                     </CardsTop>
                     <CardsBottom>
-                        <div style={{width: "500px"}}>
+                        <div>
                             <h2>The logical part (back-end)</h2>
                             <p>This is the part i only have a sneak peak into now and then. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt mollitia nemo reprehenderit dignissimos quidem molestiae repudiandae obcaecati ab aliquam esse.</p>
+                            <Button>Read more</Button>
                         </div>
-                        <div style={{width: "150px", backgroundColor: "#ececec", borderRadius: "10px"}}>
-                            <img style={{width: "90%", borderRadius: "10px"}} src={Server} alt="" />
+                        <div className="img">
+                            <img style={{width: "100%", borderRadius: "10px"}} src={Server} alt="" />
                         </div>
                     </CardsBottom>
                 </div>
             </Content>
-
-                
-              
-    
-            
-            
         </Skill>
     )
 };
 
-const Skill = styled(About)`
+const Skill = styled("div")`
+    position: relative;
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,10 +93,11 @@ const Skill = styled(About)`
 `;
 
 const Content = styled.div`
+position: relative;
 display: flex;
 flex-direction: column;
 margin: 10rem 0;
-
+z-index: -55;
     .title_div {
         display: flex;
         align-items: center;
@@ -122,43 +122,60 @@ margin: 10rem 0;
 const CardsTop = styled.div`
     display: flex;
     justify-content: space-between;
-    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 2rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1300px) {
         flex-direction: column;
     }
 `;
 
 const CardsBottom = styled.div`
-width: 100%;
-border: 1px solid #757575;
-max-width: 1400px;
-margin: 0 auto;
-border-radius: 10px;
-padding: 36px;
-margin-top: 2rem;
-display: flex;
-align-items: center;
-justify-content: space-around;
-`;
-
-const Card = styled.div`
+    margin-top: 100px;
+    width: 100%;
+    border: 1px solid #757575;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 36px;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    .img {
+        width: 50%;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+`;
+
+const Card = styled.div`
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 750px;
     width: 100%;
     border: 1px solid #757575;
     background: #fdfdfd;
     padding: 36px;
     border-radius: 10px;
-    
+    .img {
+        width: 60%;
+    }
     h2 {
         color: #616161;
     }
-   
-
+    @media (max-width: 1300px) {
+        margin: auto;
+    }
+    @media (max-width: 768px) {
+        flex-direction: column;
+        
+    }
    
 `;
 

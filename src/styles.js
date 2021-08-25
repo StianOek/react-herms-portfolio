@@ -21,7 +21,7 @@ import {motion} from 'framer-motion';
 export const Description  = styled.div`
     flex: 2;
     padding-right: 10rem;
-    z-index: 2;
+    z-index: -1;
     p {
         border-top: 1px solid black;
     }
@@ -50,7 +50,6 @@ export const Image = styled(motion.div)`
     justify-content: center;
     img {
         width: 50%;
-        height: 50%;
         object-fit: cover;
         
         
@@ -58,8 +57,7 @@ export const Image = styled(motion.div)`
     }
     @media (max-width: 1300px) {
         img {
-            width: 50%;
-            height: 50%;
+            width: 40%;
             object-fit: cover;
             margin-top: 4rem;
             border-radius: 20px;
@@ -70,10 +68,5 @@ export const Image = styled(motion.div)`
 
 export const Hide = styled.div`
     overflow: hidden;
-    h1 {
-        color: #E94996;
-        font-size: 40px;
-        margin-bottom: 2rem;
-
-    }
+  
 `

@@ -21,6 +21,12 @@ body {
     overflow-X: hidden;
 }
 
+h1 {
+    color: #212121;
+    font-size: 50px;
+    margin-bottom: 2rem;
+}
+
 h2 {
     font-weight: 600;
     font-size: 1.5rem;
@@ -53,8 +59,10 @@ span {
 p {
     padding: 2rem 0rem;
     color: #212121;
-    font-size: 1rem;
+    font-size: 18px;
     font-weight: 300;
+    line-height: 1.8;
+  
     
 }
 

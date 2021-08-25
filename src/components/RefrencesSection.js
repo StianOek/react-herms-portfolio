@@ -55,6 +55,7 @@ const RefrencesSection = () => {
 const Ref = styled(About)`
     margin-top: 10rem;
     display: block;
+    z-index: -2;
 
     span {
         display: block;

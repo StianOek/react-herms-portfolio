@@ -4,21 +4,19 @@ import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Side from '../Sidebar/Side';
-import herms from '../../img/hermslogo.svg';
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleMenu } from '../../actions/toggleAction';
 import { setLanguage } from '../../actions/language';
+
+import { AiFillLinkedin } from 'react-icons/ai'
 
 import nor from '../../img/no.svg';
 import eng from '../../img/en.svg';
 
 
 const Nav = () => {
-
-    
-    
-    
     const {pathname} = useLocation();
     
     // Redux
@@ -26,21 +24,9 @@ const Nav = () => {
     const menuOpen = useSelector(state => state.layout.menuOpen);
     const dispatch = useDispatch();
 
-    
-   
-   console.log(language)
-
     return(
         <>
             <Navbar>
-            
-                <h1>
-                    <Link to="/">
-                        <h1>H</h1>
-                    </Link>
-                </h1>
-                
-
                 <MenuLabel onClick={() => dispatch(toggleMenu(menuOpen))} >
                     <Icon 
                         clicked={menuOpen}>
@@ -75,9 +61,12 @@ const Nav = () => {
                             to="/contact">
                             {language === "no" ? "Kontakt" : "Contact"}
                         </Link>
-                        
+                       
                     </li>
                 </ul>
+
+              
+                 
                 <Flags className="desktop">
                     <Lang
                         src={nor}
@@ -141,11 +130,10 @@ const Navbar = styled.nav`
             font-size: 1rem;
             margin-left: 2rem;
         }
-        &:hover {
-            color: #ececec;
-            top: -2px;
-        }
+       
     }
+
+ 
 
    
     ul {
@@ -161,8 +149,7 @@ const Navbar = styled.nav`
     }
 
     li {
-        padding-right: 3rem;
-        padding-left: 3rem;
+        margin-right: 2rem;
         position: relative;
     }
 

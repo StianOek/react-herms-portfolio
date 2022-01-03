@@ -1,9 +1,7 @@
-import layoutReducer from './layoutReducer';
+import layoutReducer from "./layoutReducer";
 
-import {combineReducers} from 'redux';
+import { combineReducers } from "redux";
 
 export default combineReducers({
-    layout: layoutReducer,
-    
+  layout: layoutReducer,
 });
-
